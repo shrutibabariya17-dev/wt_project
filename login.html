@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+<h1 align="center">Student Login</h1>
+<hr>
+
+<form name="myForm" action="registration.html" method="get" onsubmit="return validate()">
+
+    <label>Username</label><br>
+    <input type="text" name="uname"><br><br>
+
+    <label>Password</label><br>
+    <input type="password" name="pword"><br><br>
+
+    <input type="submit" value="Login">
+
+</form>
+
+<script>
+function validate() {
+
+    var u = document.forms["myForm"]["uname"].value;
+    var p = document.forms["myForm"]["pword"].value;
+
+    if (u == "admin" && p == "123") {
+        alert("Valid Login");
+        return true;
+    } else {
+        alert("Invalid Username or Password");
+        return false;
+    }
+}
+</script>
+
+</body>
+</html>

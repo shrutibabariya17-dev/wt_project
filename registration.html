@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration</title>
+    <link rel="stylesheet" href="reg.css">
+</head>
+
+<body>
+
+<h1 align="center">Student Registration</h1>
+<hr>
+
+<form onsubmit="return registerStudent()">
+
+Name:<br>
+<input type="text" placeholder="Enter your name"><br><br>
+
+Email:<br>
+<input type="email" placeholder="Enter your email"><br><br>
+
+Mobile:<br>
+<input type="text" placeholder="Enter your Mobile no"><br><br>
+
+Course:<br>
+<input type="text" placeholder="Enter the course"><br><br>
+
+Gender:<br>
+<input type="radio" name="Gender">Male
+<input type="radio" name="Gender">Female
+<input type="radio" name="Gender">Other
+<br><br>
+
+Department:<br><br>
+<select>
+    <option>Computer Engineering</option>
+    <option>Information Technology</option>
+    <option>Mechanical Engineering</option>
+    <option>Civil Engineering</option>
+</select>
+
+<br><br>
+
+Hobbies:<br>
+<input type="checkbox">Reading
+<input type="checkbox">Dancing
+<input type="checkbox">Singing
+<input type="checkbox">Sports
+<input type="checkbox">Travelling
+<input type="checkbox">Other
+
+<br><br>
+
+Address:<br>
+<textarea rows="5" cols="10"></textarea>
+
+<br><br>
+
+<input type="submit" value="Register">
+<input type="reset" value="Reset">
+
+</form>
+
+<script>
+function registerStudent() {
+    alert("fill the registration form");
+    return true;   // Allows the form to submit
+}
+</script>
+
+</body>
+</html>

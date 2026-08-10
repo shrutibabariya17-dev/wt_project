@@ -1,0 +1,30 @@
+body{
+    background-color: aliceblue;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h2{
+    text-align: centre;
+    color: lavender;
+}
+
+form{
+    width: 400px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border: 2px solid rgb(110, 109, 208);
+    border-radius: 7px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"]
+
+textarea{
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid black;
+    border-radius: 4px;
+}

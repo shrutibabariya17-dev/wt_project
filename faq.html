@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FAQ Toggle with Dark Mode</title>
+
+    <style>
+        body{
+            font-family: Arial;
+            margin: 30px;
+            background-color: white;
+            color: black;
+            transition: 0.3s;
+        }
+
+        .dark{
+            background-color: #222;
+            color: rgb(237, 232, 232);
+        }
+
+        button{
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .question{
+            background-color:lavenderblush;
+            color: black;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .answer{
+            display: none;
+            background-color: lightgray;
+            color: black;
+            padding: 10px;
+        }
+
+        .dark{
+            background-color: #444;
+            color: rgb(26, 24, 24);
+        }
+    </style>
+</head>
+
+<body>
+
+<button onclick="theme()"> theme</button>
+
+<h2>FAQ</h2>
+
+<div class="question" onclick="toggle('a1')">
+    What is HTML?
+</div>
+<div class="answer" id="a1">
+    HTML is used to create web pages.
+</div>
+
+<div class="question" onclick="toggle('a2')">
+    What is CSS?
+</div>
+<div class="answer" id="a2">
+    CSS is used to design web pages.
+</div>
+
+<div class="question" onclick="toggle('a3')">
+    What is JavaScript?
+</div>
+<div class="answer" id="a3">
+    JavaScript is used to make web pages interactive.
+</div>
+
+<script>
+function toggle(id)
+{
+    var x = document.getElementById(id);
+
+    if(x.style.display == "block")
+    {
+        x.style.display = "none";
+    }
+    else
+    {
+        x.style.display = "block";
+    }
+}
+
+function theme()
+{
+    document.body.classList.toggle("dark");
+}
+</script>
+
+</body>
+</html>
