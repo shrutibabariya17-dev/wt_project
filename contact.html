@@ -3,29 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacts</title>
+    <title>StudentHub - Contact Directory</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 25px;
+        }
+        @media (max-width: 750px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .form-card {
+            background-color: #F8F7FD;
+            border: 1px solid #E2D9F3;
+            border-radius: 8px;
+            padding: 22px;
+        }
+    </style>
 </head>
 <body>
-    <style>
-        table, th, td{
-            border: 2px solid peachpuff;
-            border-collapse: collapse;
+
+    <div class="site-header">
+        <h1>Student Hub</h1>
+        <p>Department Contact Directory & Student Helpdesk</p>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="campuslife.html">Campus Life</a>
+        <a href="COURSEENROLLMENT.html">Course Enrollment</a>
+        <a href="events.html">Events</a>
+        <a href="faq.html">FAQ</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html" class="active">Contact Us</a>
+        <a href="login.html">Login</a>
+        <a href="registration.html">Register</a>
+        <a href="manager.php">Administrative</a>
+    </nav>
+
+    <div class="container">
+        <h2>Contact Directory</h2>
+        <p>Get in touch with the student coordinators and department representatives for assistance:</p>
+
+        <table>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Contact Number</th>
+                <th>Email ID</th>
+                <th>Role</th>
+            </tr>
+            <tr>
+                <td><strong>Shruti</strong></td>
+                <td>Babariya</td>
+                <td>+91 6354565913</td>
+                <td>shruti@gmail.com</td>
+                <td><span style="color:#5D3FD3; font-weight:bold;">Project Lead</span></td>
+            </tr>
+            <tr>
+                <td><strong>Anshika</strong></td>
+                <td>Badala</td>
+                <td>+91 9924633581</td>
+                <td>anshikabadala@gmail.com</td>
+                <td><span style="color:#5D3FD3; font-weight:bold;">Co-Lead / Developer</span></td>
+            </tr>
+            <tr>
+                <td><strong>Disha</strong></td>
+                <td>Ghadiya</td>
+                <td>+91 9824633581</td>
+                <td>disha@gmail.com</td>
+                <td>Student Coordinator</td>
+            </tr>
+            <tr>
+                <td><strong>Krisha</strong></td>
+                <td>Ghodasar</td>
+                <td>+91 9924633581</td>
+                <td>krisha@gmail.com</td>
+                <td>Event Coordinator</td>
+            </tr>
+        </table>
+
+        <div class="contact-grid">
+            <div class="form-card">
+                <h3 style="color:#5D3FD3; margin-top:0;">Send an Inquiry</h3>
+                <p style="font-size:13px; color:#666; margin-bottom:15px;">Have questions about courses or events? Fill out the form below:</p>
+                <form onsubmit="handleInquiry(event)">
+                    <label for="cname">Your Name:</label>
+                    <input type="text" id="cname" placeholder="Enter your full name" required>
+
+                    <label for="cemail">Your Email:</label>
+                    <input type="email" id="cemail" placeholder="Enter your email address" required>
+
+                    <label for="cmsg">Message / Query:</label>
+                    <textarea id="cmsg" rows="4" placeholder="Type your message here..." required></textarea>
+
+                    <input type="submit" value="Send Message">
+                </form>
+            </div>
+
+            <div style="background-color:#FFFFFF; border:1px solid #E2E8F0; border-radius:8px; padding:22px;">
+                <h3 style="color:#5D3FD3; margin-top:0;">Campus Location</h3>
+                <p><strong>Department of Artificial Intelligence & Machine Learning</strong></p>
+                <p style="color:#555;">
+                    Chandubhai S Patel Institute of Technology (CSPIT)<br>
+                    CHARUSAT Campus, Changa - 388421<br>
+                    Gujarat, India
+                </p>
+                <hr style="border:none; border-top:1px solid #eee; margin:20px 0;">
+                <p><strong>Office Hours:</strong><br>Monday &ndash; Friday: 9:00 AM &ndash; 4:30 PM</p>
+                <p><strong>Helpline:</strong><br>support@studenthub.charusat.ac.in</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Student Hub | Student Support Desk</p>
+    </footer>
+
+    <script>
+        function handleInquiry(e) {
+            e.preventDefault();
+            var name = document.getElementById("cname").value;
+            alert("Thank you " + name + "! Your message has been received. A coordinator will respond shortly.");
+            document.getElementById("cname").value = "";
+            document.getElementById("cemail").value = "";
+            document.getElementById("cmsg").value = "";
         }
+    </script>
 
-        /* table tr{
-            border: 2px solid black;
-        } */
-
-    </style>
-    <table>
-        <tr><th>FirstName</th><th>LastName</th><th>ContactNO.</th><th>EmailID</th></tr>
-        <tr><td>Anshika</td><td>Badala</td><td>9924633581</td><td>anshikabadala@gmail.com</td></tr>
-        <tr><td>Shruti</td><td>Babariya</td><td>6424633581</td><td>shruti@gmail.com</td></tr>
-        <tr><td>Disha</td><td>Ghadiya</td><td>9824633581</td><td>disha@gmail.com</td></tr>
-        <tr><td>Krisha</td><td>Ghodasar</td><td>9924633581</td><td>Krisha@gmail.com</td></tr>
-        
-        
-    </table>
-    
 </body>
 </html>

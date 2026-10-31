@@ -1,42 +1,104 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Campus Life</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentHub - Campus Life</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .club-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+        .club-card {
+            background-color: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-left: 4px solid #5D3FD3;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+        .club-card h3 {
+            color: #5D3FD3;
+            margin-bottom: 8px;
+        }
+        .club-tag {
+            display: inline-block;
+            background-color: #EDF2F7;
+            color: #4A5568;
+            font-size: 12px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
 
-<h1 align="center">Campus Life</h1>
-<hr>
+    <div class="site-header">
+        <h1>Student Hub</h1>
+        <p>Campus Clubs, Culture & Student Activities</p>
+    </div>
 
-<nav>
-<a href="index.html">Home</a> |
-<a href="ADMINSTRATIVE.html">Administrative</a> |
-<a href="CAMPUSLIFE.html">Campus Life</a> |
-<a href="COURSEENROLLMENT.html">Course Enrollment</a> |
-<a href="events.html">Events</a>
-</nav>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="campuslife.html" class="active">Campus Life</a>
+        <a href="COURSEENROLLMENT.html">Course Enrollment</a>
+        <a href="events.html">Events</a>
+        <a href="faq.html">FAQ</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="login.html">Login</a>
+        <a href="registration.html">Register</a>
+        <a href="manager.php">Administrative</a>
+    </nav>
 
-<h2>Life at Campus</h2>
+    <div class="container">
+        <h2>Life at Campus</h2>
+        <p>
+            University life goes beyond classrooms. Students actively participate in cultural celebrations, sports tournaments, technical hackathons, and creative clubs that foster collaboration and skills.
+        </p>
 
-<p>Students enjoy cultural events, sports activities, clubs and workshops.</p>
+        <h3 style="margin-top: 30px; color: #5D3FD3;">Active Student Clubs</h3>
 
-<ul>
-    <li>Sports Club</li>
-    <li>Music Club</li>
-    <li>Coding Club</li>
-    <li>Photography Club</li>
-</ul>
+        <div class="club-grid">
+            <div class="club-card">
+                <span class="club-tag">Athletics & Fitness</span>
+                <h3>Sports Club</h3>
+                <p>Organizes inter-college cricket, football, basketball, and badminton tournaments. Open practice sessions every weekend on the university grounds.</p>
+                <small style="color: #718096;"><strong>Meets:</strong> Saturdays 4:00 PM</small>
+            </div>
 
-<style>
-nav{
-background:pink;
-padding:10px;
-}
-nav a{
-text-decoration:none;
-color:black;
-}
-</style>
+            <div class="club-card">
+                <span class="club-tag">Performing Arts</span>
+                <h3>Music & Arts Club</h3>
+                <p>Features instrumental ensembles, vocal performances, battle of the bands, and annual cultural fest concerts for all aspiring student musicians.</p>
+                <small style="color: #718096;"><strong>Meets:</strong> Wednesdays 5:00 PM</small>
+            </div>
+
+            <div class="club-card">
+                <span class="club-tag">Technical</span>
+                <h3>Coding & AI Club</h3>
+                <p>Weekly competitive programming, open source contributions, web development sprints, and mentorship for university hackathons.</p>
+                <small style="color: #718096;"><strong>Meets:</strong> Fridays 4:30 PM</small>
+            </div>
+
+            <div class="club-card">
+                <span class="club-tag">Media & Creative</span>
+                <h3>Photography Club</h3>
+                <p>Captures campus moments, photowalks, portrait exhibitions, and provides official coverage for all college fests and symposiums.</p>
+                <small style="color: #718096;"><strong>Meets:</strong> Thursdays 5:00 PM</small>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Student Hub | Campus Life Directorate</p>
+    </footer>
 
 </body>
 </html>

@@ -1,30 +1,200 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentHub - Student Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 20px;
+        }
+        @media (max-width: 700px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .profile-card {
+            background-color: #F8F7FD;
+            border: 1px solid #E2D9F3;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .profile-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed #D6C9EB;
+        }
+        .profile-row:last-child {
+            border-bottom: none;
+        }
+        .profile-label {
+            font-weight: bold;
+            color: #555;
+        }
+        .profile-val {
+            color: #2D3748;
+            font-weight: 600;
+        }
+        .enroll-badge {
+            background-color: #5D3FD3;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 13px;
+        }
+        .quick-links-box {
+            background-color: #FFF5F7;
+            border: 1px solid #FED7E2;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .quick-links-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .quick-links-box li {
+            padding: 10px;
+            margin-bottom: 8px;
+            background: white;
+            border: 1px solid #FED7E2;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .quick-links-box li a {
+            color: #5D3FD3;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .status-badge {
+            background-color: #C6F6D5;
+            color: #22543D;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+    </style>
 </head>
-<link rel="stylesheet" href="dashboard.css">
-
 <body>
 
-<h1 align="center">Student Dashboard</h1>
-<hr>
+    <div class="site-header">
+        <h1>Student Hub</h1>
+        <p>Personal Academic Dashboard</p>
+    </div>
 
-<h3>Student Details</h3>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="campuslife.html">Campus Life</a>
+        <a href="COURSEENROLLMENT.html">Course Enrollment</a>
+        <a href="events.html">Events</a>
+        <a href="faq.html">FAQ</a>
+        <a href="dashboard.html" class="active">Dashboard</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="login.html">Login</a>
+        <a href="registration.html">Register</a>
+        <a href="manager.php">Administrative</a>
+    </nav>
 
-<p>Name : Shruti Babariya</p>
-<p>Course : B.Tech</p>
-<p>Semester : 3</p>
-<p>result : 8.00 SGPA</p>
+    <div class="container">
+        <h2>Student Academic Profile</h2>
 
-<h3>Quick Links</h3>
+        <div class="dashboard-grid">
+            <div class="profile-card">
+                <h3 style="color: #5D3FD3; margin-bottom: 15px;">Student Details</h3>
+                <div class="profile-row">
+                    <span class="profile-label">Name:</span>
+                    <span class="profile-val">Shruti Babariya</span>
+                </div>
+                <div class="profile-row">
+                    <span class="profile-label">Enrollment No:</span>
+                    <span class="profile-val"><span class="enroll-badge">25aiml001</span></span>
+                </div>
+                <div class="profile-row">
+                    <span class="profile-label">Course / Degree:</span>
+                    <span class="profile-val">B.Tech (AIML)</span>
+                </div>
+                <div class="profile-row">
+                    <span class="profile-label">Department:</span>
+                    <span class="profile-val">CSPIT, CHARUSAT</span>
+                </div>
+                <div class="profile-row">
+                    <span class="profile-label">Current Semester:</span>
+                    <span class="profile-val">Semester 3</span>
+                </div>
+                <div class="profile-row">
+                    <span class="profile-label">Academic Result:</span>
+                    <span class="profile-val" style="color: #2B6CB0;">8.00 SGPA</span>
+                </div>
+            </div>
 
-<ul>
-<li>Attendance</li>
-<li>Results</li>
-<li>Assignments</li>
-<li>Events</li>
-</ul>
+            <div class="quick-links-box">
+                <h3 style="color: #9B2C2C; margin-bottom: 15px;">Academic Status & Links</h3>
+                <ul>
+                    <li>
+                        <span>Attendance Tracker</span>
+                        <span class="status-badge">88% (Good)</span>
+                    </li>
+                    <li>
+                        <span>Latest Semester SGPA</span>
+                        <span class="status-badge">8.00 SGPA</span>
+                    </li>
+                    <li>
+                        <span>Course Enrollments</span>
+                        <a href="COURSEENROLLMENT.html">Enroll &rarr;</a>
+                    </li>
+                    <li>
+                        <span>Campus Hackathons & Events</span>
+                        <a href="events.html">View &rarr;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 30px; color: #5D3FD3;">Currently Enrolled Courses</h3>
+        <table>
+            <tr>
+                <th>Course Code</th>
+                <th>Course Name</th>
+                <th>Faculty</th>
+                <th>Credits</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>CS301</td>
+                <td>Java Programming</td>
+                <td>Jalpesh Vasa</td>
+                <td>4</td>
+                <td><span class="status-badge">Active</span></td>
+            </tr>
+            <tr>
+                <td>CS302</td>
+                <td>Web Development (WT)</td>
+                <td>Mukti Patel</td>
+                <td>4</td>
+                <td><span class="status-badge">Active</span></td>
+            </tr>
+            <tr>
+                <td>CS303</td>
+                <td>Python for AI & ML</td>
+                <td>Prajyot Tugaonkar</td>
+                <td>3</td>
+                <td><span class="status-badge">Active</span></td>
+            </tr>
+        </table>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Student Hub | Student Portal</p>
+    </footer>
 
 </body>
 </html>

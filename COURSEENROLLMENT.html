@@ -1,53 +1,112 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Course Enrollment</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentHub - Course Enrollment</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .enroll-form-box {
+            background-color: #F8F7FD;
+            border: 1px solid #E2D9F3;
+            border-radius: 8px;
+            padding: 25px;
+            max-width: 500px;
+            margin: 25px auto 0 auto;
+        }
+    </style>
 </head>
 <body>
 
-<h1 align="center">Course Enrollment</h1>
-<hr>
+    <div class="site-header">
+        <h1>Student Hub</h1>
+        <p>Semester Course Catalog & Online Enrollment</p>
+    </div>
 
-<nav>
-<a href="index.html">Home</a> |
-<a href="COURSEENROLLMENT.html">Course Enrollment</a>
-</nav>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="campuslife.html">Campus Life</a>
+        <a href="COURSEENROLLMENT.html" class="active">Course Enrollment</a>
+        <a href="events.html">Events</a>
+        <a href="faq.html">FAQ</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="login.html">Login</a>
+        <a href="registration.html">Register</a>
+        <a href="manager.php">Administrative</a>
+    </nav>
 
-<h2>Available Courses</h2>
+    <div class="container">
+        <h2>Available Semester Courses</h2>
+        <p>Browse through the available technical courses offered this semester and register online below:</p>
 
-<table border="1" cellpadding="10">
-<tr>
-<th>Course</th>
-<th>Faculty</th>
-</tr>
+        <table>
+            <tr>
+                <th>Course ID</th>
+                <th>Course Name</th>
+                <th>Assigned Faculty</th>
+                <th>Department</th>
+                <th>Credits</th>
+            </tr>
+            <tr>
+                <td>CS301</td>
+                <td><strong>Java Programming</strong></td>
+                <td>Jalpesh Vasa</td>
+                <td>Computer Science / IT</td>
+                <td>4 Credits</td>
+            </tr>
+            <tr>
+                <td>CS302</td>
+                <td><strong>Web Development (WT)</strong></td>
+                <td>Mukti Patel</td>
+                <td>Computer Science / AIML</td>
+                <td>4 Credits</td>
+            </tr>
+            <tr>
+                <td>CS303</td>
+                <td><strong>Python for AI</strong></td>
+                <td>Prajyot Tugaonkar</td>
+                <td>Artificial Intelligence</td>
+                <td>3 Credits</td>
+            </tr>
+            <tr>
+                <td>CS304</td>
+                <td><strong>Database Management (DBMS)</strong></td>
+                <td>Harshil Joshi</td>
+                <td>Computer Engineering</td>
+                <td>4 Credits</td>
+            </tr>
+        </table>
 
-<tr>
-<td>Java Programming</td>
-<td>Jalpesh Vasa</td>
-</tr>
+        <div class="enroll-form-box">
+            <h3 style="color: #5D3FD3; margin-top: 0; text-align: center;">Enroll in a Course</h3>
+            <p style="font-size: 13px; color: #666; text-align: center; margin-bottom: 20px;">
+                Enter your registered Student ID to register for a semester course.
+            </p>
 
-<tr>
-<td>Web Development</td>
-<td>Mukti Patel</td>
-</tr>
+            <form action="manager.php?action=enroll" method="POST">
+                <label for="rollno">Student ID (Roll No):</label>
+                <input type="text" id="rollno" name="rollno" placeholder="e.g. 25aiml001" required>
 
-<tr>
-<td>Python</td>
-<td>Prajyot Tugaonkar</td>
-</tr>
+                <label for="course_id">Select Course to Enroll:</label>
+                <select id="course_id" name="course_id" required>
+                    <option value="1">CS301 - Java Programming (Jalpesh Vasa)</option>
+                    <option value="2">CS302 - Web Development (Mukti Patel)</option>
+                    <option value="3">CS303 - Python for AI (Prajyot Tugaonkar)</option>
+                    <option value="4">CS304 - Database Management (Harshil Joshi)</option>
+                </select>
 
-</table>
+                <div style="text-align: center; margin-top: 20px;">
+                    <input type="submit" value="Confirm Enrollment">
+                </div>
+            </form>
+        </div>
+    </div>
 
-<style>
-nav{
-background:lavenderblush;
-padding:10px;
-}
-nav a{
-text-decoration:none;
-color:black;
-}
-</style>
+    <footer>
+        <p>&copy; 2026 Student Hub | Course Registration System</p>
+    </footer>
 
 </body>
 </html>

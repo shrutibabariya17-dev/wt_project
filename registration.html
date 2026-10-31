@@ -1,71 +1,189 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Registration</title>
-    <link rel="stylesheet" href="reg.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentHub - Register</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #F3E6F5;
+            margin: 0;
+            padding: 30px 20px;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        header h1 {
+            color: #1a4d2e;
+            font-size: 32px;
+            margin: 0 0 10px 0;
+            font-weight: bold;
+        }
+
+        header h2 {
+            color: #1a4d2e;
+            font-size: 24px;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .form-container {
+            width: 320px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        label {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #222;
+            display: block;
+            margin-bottom: 4px;
+            text-align: center;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 9px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 13px;
+            margin-bottom: 16px;
+            background-color: #ffffff;
+            color: #333;
+            text-align: left;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            padding: 8px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 5px;
+            transition: background 0.2s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .helper-links {
+            font-family: Arial, Helvetica, sans-serif;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .helper-links a {
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .helper-links a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #b8cbbd;
+            margin-top: 35px;
+        }
+    </style>
+
+    <script>
+    function validateform() {
+        let name = document.getElementById("name").value.trim();
+        let rollno = document.getElementById("Rollno").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let password = document.getElementById("password").value.trim();
+        let course = document.getElementById("course").value.trim();
+
+        let rolltest = /^[0-9]{2}aiml[0-9]{3}$/i;
+        let pwdtest = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{6,}$/;
+
+        if (name === "") {
+            alert("Please enter your name");
+            return false;
+        }
+
+        if (!rolltest.test(rollno)) {
+            alert("Enter Valid ID (e.g. 25aiml001)");
+            return false;
+        }
+
+        if (email === "") {
+            alert("Please enter your email");
+            return false;
+        }
+
+        if (password.length < 6) {
+            alert("Password must be at least 6 characters long with uppercase, lowercase, and a digit.");
+            return false;
+        }
+
+        // Form proceeds to manager.php?action=register for MySQL database insertion
+        return true;
+    }
+    </script>
 </head>
 
 <body>
 
-<h1 align="center">Student Registration</h1>
-<hr>
+    <header>
+        <h1>StudentHub</h1>
+        <h2>Register</h2>
+    </header>
 
-<form onsubmit="return registerStudent()">
+    <main>
+        <div class="form-container">
+            <form action="manager.php?action=register" method="POST" onsubmit="return validateform()">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
-Name:<br>
-<input type="text" placeholder="Enter your name"><br><br>
+                <label for="Rollno">ID:</label>
+                <input type="text" id="Rollno" name="rollno" placeholder="Enter your ID (e.g. 25aiml001)" required>
 
-Email:<br>
-<input type="email" placeholder="Enter your email"><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
-Mobile:<br>
-<input type="text" placeholder="Enter your Mobile no"><br><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
 
-Course:<br>
-<input type="text" placeholder="Enter the course"><br><br>
+                <label for="course">Course:</label>
+                <input type="text" id="course" name="course" placeholder="Enter your course (e.g. B.Tech AIML)" value="B.Tech AIML">
 
-Gender:<br>
-<input type="radio" name="Gender">Male
-<input type="radio" name="Gender">Female
-<input type="radio" name="Gender">Other
-<br><br>
+                <input type="submit" value="Register">
+            </form>
 
-Department:<br><br>
-<select>
-    <option>Computer Engineering</option>
-    <option>Information Technology</option>
-    <option>Mechanical Engineering</option>
-    <option>Civil Engineering</option>
-</select>
+            <div class="helper-links">
+                Already registered? <a href="login.html">Login here</a> | <a href="index.html">Home</a>
+            </div>
+        </div>
+    </main>
 
-<br><br>
-
-Hobbies:<br>
-<input type="checkbox">Reading
-<input type="checkbox">Dancing
-<input type="checkbox">Singing
-<input type="checkbox">Sports
-<input type="checkbox">Travelling
-<input type="checkbox">Other
-
-<br><br>
-
-Address:<br>
-<textarea rows="5" cols="10"></textarea>
-
-<br><br>
-
-<input type="submit" value="Register">
-<input type="reset" value="Reset">
-
-</form>
-
-<script>
-function registerStudent() {
-    alert("fill the registration form");
-    return true;   // Allows the form to submit
-}
-</script>
+    <hr>
 
 </body>
 </html>

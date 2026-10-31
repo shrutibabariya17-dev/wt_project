@@ -1,42 +1,193 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Login</title>
-    <link rel="stylesheet" href="login.css">
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentHub - Student Login</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #967BB6;
+            color: #333;
+            min-height: 100vh;
+        }
 
+        .header-section {
+            padding-top: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            color: white;
+            font-size: 26px;
+            margin: 0 0 15px 0;
+            font-weight: 600;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.4);
+            margin: 0;
+        }
+
+        .login-card {
+            width: 360px;
+            max-width: 90%;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 14px;
+            color: #333;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 11px 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.2s;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #5D3FD3;
+        }
+
+        input[type="submit"] {
+            padding: 10px 24px;
+            background-color: #5D3FD3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4B2DB0;
+        }
+
+        .card-links {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .card-links a {
+            color: #5D3FD3;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .card-links a:hover {
+            text-decoration: underline;
+        }
+
+        .nav-home {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .nav-home a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .nav-home a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
 <body>
 
-<h1 align="center">Student Login</h1>
-<hr>
+    <div class="header-section">
+        <h1>Student Login</h1>
+        <hr>
+    </div>
 
-<form name="myForm" action="registration.html" method="get" onsubmit="return validate()">
+    <div class="login-card">
+        <form name="myForm" onsubmit="return validate()">
+            <label>Username / Student ID</label>
+            <input type="text" name="uname" placeholder="Enter username or ID (e.g. 25aiml001)">
 
-    <label>Username</label><br>
-    <input type="text" name="uname"><br><br>
+            <label>Password</label>
+            <input type="password" name="pword" placeholder="Enter password">
 
-    <label>Password</label><br>
-    <input type="password" name="pword"><br><br>
+            <input type="submit" value="Login">
+        </form>
 
-    <input type="submit" value="Login">
+        <div class="card-links">
+            Don't have an account? <a href="registration.html">Register here</a>
+        </div>
+    </div>
 
-</form>
+    <div class="nav-home">
+        <a href="index.html">&larr; Back to Home</a>
+    </div>
 
-<script>
-function validate() {
+    <script>
+        function validate() {
+            var u = document.forms["myForm"]["uname"].value.trim();
+            var p = document.forms["myForm"]["pword"].value.trim();
 
-    var u = document.forms["myForm"]["uname"].value;
-    var p = document.forms["myForm"]["pword"].value;
+            if (u === "") {
+                alert("Please enter username or ID");
+                return false;
+            }
 
-    if (u == "admin" && p == "123") {
-        alert("Valid Login");
-        return true;
-    } else {
-        alert("Invalid Username or Password");
-        return false;
-    }
-}
-</script>
+            if (p === "") {
+                alert("Please enter password");
+                return false;
+            }
+
+            // 1. Admin Login
+            if (u === "admin" && p === "123") {
+                alert("Valid Login: Administrator Access Granted");
+                window.location.href = "manager.php";
+                return false;
+            }
+
+            // 2. Student Login (25aiml001 / Shruti Babariya)
+            if ((u.toLowerCase() === "25aiml001" || u.toLowerCase() === "shruti") && (p === "123" || p === "123456")) {
+                alert("Valid Login! Welcome Shruti Babariya.");
+                window.location.href = "dashboard.html";
+                return false;
+            }
+
+            // 3. Any standard student ID format
+            var rollRegex = /^[0-9]{2}aiml[0-9]{3}$/i;
+            if (rollRegex.test(u) && p.length >= 4) {
+                alert("Valid Login! Welcome to your dashboard.");
+                window.location.href = "dashboard.html";
+                return false;
+            }
+
+            alert("Invalid Username or Password.\nHint: Use 'admin' & '123' or '25aiml001' & '123456'");
+            return false;
+        }
+    </script>
 
 </body>
 </html>

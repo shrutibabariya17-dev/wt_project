@@ -1,81 +1,137 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Student Hub</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Hub - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        .gallery-card {
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+            text-align: center;
+        }
+        .gallery-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+        .gallery-card .caption {
+            padding: 12px;
+            font-weight: bold;
+            color: #4A5568;
+            background-color: #F7FAFC;
+            border-top: 1px solid #EDF2F7;
+        }
+        .feature-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+        .feature-item {
+            background-color: #F8F7FD;
+            border: 1px solid #E9E3F7;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .feature-item h3 {
+            color: #5D3FD3;
+            margin-bottom: 6px;
+            font-size: 16px;
+        }
+        .feature-item p {
+            font-size: 13px;
+            color: #718096;
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
 
-    <h1 align="center">Student Hub</h1>
-    
+    <div class="site-header">
+        <img src="https://media.licdn.com/dms/image/v2/D4D0BAQHWXVAKdhM1Lg/company-logo_200_200/company-logo_200_200/0/1693983870321/studenthub_co_logo?e=2147483647&v=beta&t=EN025ZvklZiS_TyEbpUCpX3PYnDCmPRGwmLv1ZHp33E"
+             alt="Student Hub Logo"
+             width="80"
+             style="border-radius: 50%;">
+        <h1>Student Hub</h1>
+        <p>Your Complete College & Campus Life Portal</p>
+    </div>
 
-    <img src="https://media.licdn.com/dms/image/v2/D4D0BAQHWXVAKdhM1Lg/company-logo_200_200/company-logo_200_200/0/1693983870321/studenthub_co_logo?e=2147483647&v=beta&t=EN025ZvklZiS_TyEbpUCpX3PYnDCmPRGwmLv1ZHp33E"
-         alt="Student Hub Logo"
-         width="150"
-         style="display:block; margin:auto;">
+    <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="campuslife.html">Campus Life</a>
+        <a href="COURSEENROLLMENT.html">Course Enrollment</a>
+        <a href="events.html">Events</a>
+        <a href="faq.html">FAQ</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="login.html">Login</a>
+        <a href="registration.html">Register</a>
+        <a href="manager.php">Administrative</a>
+    </nav>
 
-    <hr>
-<nav>
-    <a href="index.html">Home</a> |
-    <a href="ADMINSTRATIVE.html">Administrative</a> |
-    <a href="CAMPUSLIFE.html">Campus Life</a> |
-    <a href="COURSEENROLLMENT.html">Course Enrollment</a> |
-    <a href="login.html">Login</a> |
-    <a href="registration.html">Registration</a> |
-    <a href="events.html">Events</a> |
-    <a href="registration.html">Student Registration</a> |
-    <a href="dashboard.html">Dashboard</a> |
-    <a href="about.html">About Us</a> |
-    <a href="contact.html">Contact Us</a> |
-</nav>
-<section>
-<div><img src="https://vskills.in/certification/blog/wp-content/uploads/2014/11/the-color-of-culture.jpg" height="300px" width="500px" ></div>
-<div><img src="https://media.istockphoto.com/id/1484758991/photo/hackathon-concept-the-meeting-at-the-white-office-table.jpg?s=612x612&w=0&k=20&c=ifl2F6QptCk87wh82yIX7HLILdvmoMdJeB92zr4BR6o=" height="300px" width="500px"></div>
-<div><img src="https://gosharpener.com/content/uploads/photos/2024/06/sngine_d38fac84084ea933cb951b863185ccc3.png"height="300px" width="500px"></div>
-<div><img src="https://www.vhtofficial.com/includefiles/pages/ban15.jpg" height="300px" width="500px" ></div>
-</section>
- <style>
-        nav{
-            display : flex;
-            gap : 20px;
-            background : pink;
-            padding : 10px;
-        }
-         nav a{
-            text-decoration: none;
-            color: black;
-        }
-        div{
-            background-color: bisque;
-            border: 1px solid black;
-            padding: 20px;
-            text-align: center;
-             /* height: 100px;
-            width: 300px; */
-            /* display: grid; */ 
-        }
-        section{
-            display: grid;
-            grid-template-columns: auto auto;
-            gap: 10px;
-            margin-top: 20px;
+    <div class="container">
+        <h2>Welcome to Student Hub</h2>
+        <p>
+            Student Hub is designed to help college students easily navigate campus information, enroll in academic courses, stay informed about upcoming workshops and hackathons, and check their academic progress through their personal student dashboard.
+        </p>
 
-        }
-        </style>
-    <hr>
+        <div class="feature-box">
+            <div class="feature-item">
+                <h3>Campus Life</h3>
+                <p>Explore cultural, music, coding, and sports clubs active on campus.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Course Enrollment</h3>
+                <p>View faculty assignments and enroll in semester courses instantly.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Events & Hackathons</h3>
+                <p>Real-time listings with category search, filter, and pagination.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Student Dashboard</h3>
+                <p>View enrollment details, current semester GPA, and academic links.</p>
+            </div>
+        </div>
 
-    <h2>Welcome to Student Hub</h2>
+        <h2>Campus Life & Activities</h2>
+        <div class="gallery-grid">
+            <div class="gallery-card">
+                <img src="https://vskills.in/certification/blog/wp-content/uploads/2014/11/the-color-of-culture.jpg" alt="Cultural Events">
+                <div class="caption">Cultural Celebrations & Festivals</div>
+            </div>
+            <div class="gallery-card">
+                <img src="https://media.istockphoto.com/id/1484758991/photo/hackathon-concept-the-meeting-at-the-white-office-table.jpg?s=612x612&w=0&k=20&c=ifl2F6QptCk87wh82yIX7HLILdvmoMdJeB92zr4BR6o=" alt="Hackathons">
+                <div class="caption">Hackathons & Coding Competitions</div>
+            </div>
+            <div class="gallery-card">
+                <img src="https://gosharpener.com/content/uploads/photos/2024/06/sngine_d38fac84084ea933cb951b863185ccc3.png" alt="Tech Workshops">
+                <div class="caption">Tech Seminars & Technical Workshops</div>
+            </div>
+            <div class="gallery-card">
+                <img src="https://www.vhtofficial.com/includefiles/pages/ban15.jpg" alt="Campus Life">
+                <div class="caption">Student Community & Life at Campus</div>
+            </div>
+        </div>
+    </div>
 
-    <p>
-        Student Hub helps students access campus information, events, and course details.
-    </p>
-
-    <!-- <h3>Features</h3>
-
-    <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul> -->
+    <footer>
+        <p>&copy; 2026 Student Hub | CSPIT, CHARUSAT University | Developed by Shruti Babariya & Anshika Badala</p>
+    </footer>
 
 </body>
 </html>
