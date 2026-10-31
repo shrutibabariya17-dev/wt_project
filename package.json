@@ -1,0 +1,8 @@
+{
+  "name": "student-hub",
+  "version": "1.0.0",
+  "description": "Student Hub - University Web Portal",
+  "scripts": {
+    "build": "echo 'Build successful'"
+  }
+}
