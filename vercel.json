@@ -1,8 +1,5 @@
 {
-  "version": 2,
-  "cleanUrls": true,
   "rewrites": [
-    { "source": "/manager.php", "destination": "/manager.html" },
-    { "source": "/(.*)", "destination": "/index.js" }
+    { "source": "/manager.php", "destination": "/manager.html" }
   ]
 }
