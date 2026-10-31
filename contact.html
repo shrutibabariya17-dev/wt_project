@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StudentHub - Contact Directory</title>
+    <title>Student Hub - Contact Us</title>
     <link rel="stylesheet" href="style.css">
     <style>
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 25px;
-            margin-top: 25px;
+            margin-top: 30px;
         }
-        @media (max-width: 750px) {
+
+        @media (max-width: 768px) {
             .contact-grid {
                 grid-template-columns: 1fr;
             }
         }
+
         .form-card {
             background-color: #F8F7FD;
             border: 1px solid #E2D9F3;
@@ -28,8 +30,12 @@
 <body>
 
     <div class="site-header">
+        <img src="https://media.licdn.com/dms/image/v2/D4D0BAQHWXVAKdhM1Lg/company-logo_200_200/company-logo_200_200/0/1693983870321/studenthub_co_logo?e=2147483647&v=beta&t=EN025ZvklZiS_TyEbpUCpX3PYnDCmPRGwmLv1ZHp33E"
+             alt="Student Hub Logo"
+             width="80"
+             style="border-radius: 50%;">
         <h1>Student Hub</h1>
-        <p>Department Contact Directory & Student Helpdesk</p>
+        <p>Your Complete College & Campus Life Portal</p>
     </div>
 
     <nav>
@@ -92,47 +98,50 @@
             <div class="form-card">
                 <h3 style="color:#5D3FD3; margin-top:0;">Send an Inquiry</h3>
                 <p style="font-size:13px; color:#666; margin-bottom:15px;">Have questions about courses or events? Fill out the form below:</p>
-                <form onsubmit="handleInquiry(event)">
+                <form onsubmit="return handleInquiry(event)">
                     <label for="cname">Your Name:</label>
                     <input type="text" id="cname" placeholder="Enter your full name" required>
 
                     <label for="cemail">Your Email:</label>
                     <input type="email" id="cemail" placeholder="Enter your email address" required>
 
-                    <label for="cmsg">Message / Query:</label>
-                    <textarea id="cmsg" rows="4" placeholder="Type your message here..." required></textarea>
+                    <label for="cmsg">Message:</label>
+                    <textarea id="cmsg" rows="4" placeholder="How can we help you?" required></textarea>
 
                     <input type="submit" value="Send Message">
                 </form>
             </div>
 
-            <div style="background-color:#FFFFFF; border:1px solid #E2E8F0; border-radius:8px; padding:22px;">
-                <h3 style="color:#5D3FD3; margin-top:0;">Campus Location</h3>
-                <p><strong>Department of Artificial Intelligence & Machine Learning</strong></p>
-                <p style="color:#555;">
-                    Chandubhai S Patel Institute of Technology (CSPIT)<br>
-                    CHARUSAT Campus, Changa - 388421<br>
-                    Gujarat, India
+            <div class="form-card">
+                <h3 style="color:#5D3FD3; margin-top:0;">Campus Address</h3>
+                <p style="color:#4A5568; line-height:1.7;">
+                    <strong>Department of Computer Science & Engineering</strong><br>
+                    Chandubhai S. Patel Institute of Technology (CSPIT)<br>
+                    CHARUSAT Campus, 139, Highway Anand-Changa<br>
+                    Changa - 388421, Anand, Gujarat, India.
                 </p>
-                <hr style="border:none; border-top:1px solid #eee; margin:20px 0;">
-                <p><strong>Office Hours:</strong><br>Monday &ndash; Friday: 9:00 AM &ndash; 4:30 PM</p>
-                <p><strong>Helpline:</strong><br>support@studenthub.charusat.ac.in</p>
+                <hr style="border:none; border-top:1px solid #E2E8F0; margin:15px 0;">
+                <p style="font-size:13px; color:#718096; margin:0;">
+                    📞 Support Desk: +91 6354565913<br>
+                    ✉️ Support Email: support@studenthub.ac.in
+                </p>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Student Hub | Student Support Desk</p>
+        <p>&copy; 2026 Student Hub | CSPIT, CHARUSAT University | Developed by Shruti Babariya & Anshika Badala</p>
     </footer>
 
     <script>
         function handleInquiry(e) {
             e.preventDefault();
             var name = document.getElementById("cname").value;
-            alert("Thank you " + name + "! Your message has been received. A coordinator will respond shortly.");
+            alert("Thank you, " + name + "! Your inquiry has been submitted. Our support team will respond shortly.");
             document.getElementById("cname").value = "";
             document.getElementById("cemail").value = "";
             document.getElementById("cmsg").value = "";
+            return false;
         }
     </script>
 

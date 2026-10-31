@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Hub - About Us</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .about-card {
+            background-color: #F8F7FD;
+            border: 1px solid #E2D9F3;
+            border-radius: 8px;
+            padding: 22px;
+            margin-top: 20px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .team-member {
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .team-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: #5D3FD3;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin: 0 auto 12px auto;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="site-header">
+        <img src="https://media.licdn.com/dms/image/v2/D4D0BAQHWXVAKdhM1Lg/company-logo_200_200/company-logo_200_200/0/1693983870321/studenthub_co_logo?e=2147483647&v=beta&t=EN025ZvklZiS_TyEbpUCpX3PYnDCmPRGwmLv1ZHp33E"
+             alt="Student Hub Logo"
+             width="80"
+             style="border-radius: 50%;">
+        <h1>Student Hub</h1>
+        <p>Your Complete College & Campus Life Portal</p>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="campuslife.html">Campus Life</a>
+        <a href="COURSEENROLLMENT.html">Course Enrollment</a>
+        <a href="events.html">Events</a>
+        <a href="faq.html">FAQ</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="about.html" class="active">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="login.html">Login</a>
+        <a href="registration.html">Register</a>
+        <a href="manager.php">Administrative</a>
+    </nav>
+
+    <div class="container">
+        <h2>About Student Hub</h2>
+        <p>
+            <strong>Student Hub</strong> is an integrated web-based student portal designed to provide university students with single-point access to course enrollment, campus events, academic performance records, club activities, and communication channels.
+        </p>
+
+        <div class="about-card">
+            <h3 style="color:#5D3FD3; margin-top:0;">Project Mission & Vision</h3>
+            <p style="margin:0; color:#555;">
+                Our goal is to simplify university life by connecting academic departments, student clubs, and administrative services into one cohesive, accessible, and fast web application.
+            </p>
+        </div>
+
+        <h3 style="color:#5D3FD3; margin-top:35px;">Project Authors & Developers</h3>
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="team-avatar">SB</div>
+                <h4 style="margin:5px 0; color:#2D3748;">Shruti Babariya</h4>
+                <p style="color:#5D3FD3; font-weight:bold; font-size:13px; margin:0 0 8px 0;">Lead Developer / Author</p>
+                <p style="font-size:13px; color:#666; margin:4px 0;">ID: <strong>25aiml001</strong></p>
+                <p style="font-size:13px; color:#666; margin:4px 0;">Email: sharuti12@gmail.com</p>
+                <p style="font-size:13px; color:#666; margin:4px 0;">Phone: +91 6354565913</p>
+            </div>
+
+            <div class="team-member">
+                <div class="team-avatar" style="background-color:#7C5CBF;">AB</div>
+                <h4 style="margin:5px 0; color:#2D3748;">Anshika Badala</h4>
+                <p style="color:#5D3FD3; font-weight:bold; font-size:13px; margin:0 0 8px 0;">Co-Developer / Author</p>
+                <p style="font-size:13px; color:#666; margin:4px 0;">ID: <strong>25aiml002</strong></p>
+                <p style="font-size:13px; color:#666; margin:4px 0;">Email: anshikabadala@gmail.com</p>
+                <p style="font-size:13px; color:#666; margin:4px 0;">Phone: +91 9924633581</p>
+            </div>
+        </div>
+
+        <div class="about-card" style="margin-top:25px;">
+            <h3 style="color:#5D3FD3; margin-top:0;">Academic Institutional Details</h3>
+            <p style="margin:0; color:#555;">
+                Department of Computer Science & Engineering (AIML)<br>
+                Chandubhai S. Patel Institute of Technology (CSPIT)<br>
+                Charotar University of Science and Technology (CHARUSAT), Changa, Gujarat.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Student Hub | CSPIT, CHARUSAT University | Developed by Shruti Babariya & Anshika Badala</p>
+    </footer>
+
+</body>
+</html>

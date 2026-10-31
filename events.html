@@ -3,74 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StudentHub - Events & Workshops</title>
+    <title>Student Hub - Events & Hackathons</title>
     <link rel="stylesheet" href="style.css">
     <style>
         .filter-controls {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
+            margin: 20px 0;
             align-items: center;
-            background-color: #F8F7FD;
-            padding: 18px;
-            border-radius: 8px;
-            border: 1px solid #E2D9F3;
-            margin-bottom: 25px;
         }
 
-        .filter-controls input[type="text"] {
-            flex: 2;
+        .filter-controls input[type="text"],
+        .filter-controls select {
+            width: auto;
             min-width: 200px;
             margin-bottom: 0;
         }
 
-        .filter-controls select {
-            flex: 1;
-            min-width: 150px;
-            margin-bottom: 0;
-        }
-
         .event-card {
-            background: white;
+            background-color: #FFFFFF;
             border: 1px solid #E2E8F0;
-            border-radius: 8px;
-            padding: 18px;
+            border-left: 5px solid #5D3FD3;
+            border-radius: 6px;
+            padding: 16px 20px;
             margin-bottom: 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
-            transition: transform 0.15s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+            transition: transform 0.15s, box-shadow 0.15s;
         }
 
         .event-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
         }
 
         .event-title {
-            color: #5D3FD3;
-            font-size: 18px;
+            font-size: 17px;
             font-weight: bold;
-            margin-bottom: 5px;
+            color: #2D3748;
+            margin-bottom: 4px;
         }
 
         .event-details {
+            font-size: 13px;
             color: #718096;
-            font-size: 14px;
         }
 
         .event-badge {
-            display: inline-block;
-            padding: 4px 12px;
+            padding: 4px 10px;
             border-radius: 12px;
             font-size: 12px;
             font-weight: bold;
         }
 
-        .badge-workshop { background-color: #EBF8FF; color: #2B6CB0; }
-        .badge-competition { background-color: #FEFCBF; color: #744210; }
-        .badge-seminar { background-color: #FEEBC8; color: #9C4221; }
+        .badge-workshop {
+            background-color: #EBF8FF;
+            color: #2B6CB0;
+        }
+
+        .badge-competition {
+            background-color: #FED7D7;
+            color: #9B2C2C;
+        }
+
+        .badge-seminar {
+            background-color: #FEFCBF;
+            color: #744210;
+        }
 
         .pagination-bar {
             display: flex;
@@ -85,8 +87,12 @@
 <body>
 
     <div class="site-header">
+        <img src="https://media.licdn.com/dms/image/v2/D4D0BAQHWXVAKdhM1Lg/company-logo_200_200/company-logo_200_200/0/1693983870321/studenthub_co_logo?e=2147483647&v=beta&t=EN025ZvklZiS_TyEbpUCpX3PYnDCmPRGwmLv1ZHp33E"
+             alt="Student Hub Logo"
+             width="80"
+             style="border-radius: 50%;">
         <h1>Student Hub</h1>
-        <p>Upcoming Campus Events, Hackathons & Workshops</p>
+        <p>Your Complete College & Campus Life Portal</p>
     </div>
 
     <nav>
@@ -133,44 +139,50 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 Student Hub | Campus Event Management</p>
+        <p>&copy; 2026 Student Hub | CSPIT, CHARUSAT University | Developed by Shruti Babariya & Anshika Badala</p>
     </footer>
 
     <script>
+        const fallbackEvents = [
+            { "id": 1, "name": "AI & Deep Learning Hackathon", "category": "Competition", "date": "2026-11-15" },
+            { "id": 2, "name": "Full Stack Web Development Workshop", "category": "Workshop", "date": "2026-11-20" },
+            { "id": 3, "name": "Cybersecurity & Ethical Hacking Seminar", "category": "Seminar", "date": "2026-11-25" },
+            { "id": 4, "name": "Inter-College Code Sprint 2026", "category": "Competition", "date": "2026-12-02" },
+            { "id": 5, "name": "Cloud Computing on AWS & Google Cloud", "category": "Workshop", "date": "2026-12-10" },
+            { "id": 6, "name": "Data Science & Big Data Analytics Workshop", "category": "Workshop", "date": "2026-12-18" },
+            { "id": 7, "name": "Future of Generative AI Industry Talk", "category": "Seminar", "date": "2026-12-22" }
+        ];
+
         let events = [];
         let page = 1;
         let perPage = 5;
 
-        // Fetch JSON data
+        // Fetch JSON data with reliable fallback
         fetch("events.json")
             .then(response => response.json())
             .then(data => {
-                events = data;
+                events = (data && data.length > 0) ? data : fallbackEvents;
                 displayEvents();
             })
-            .catch(error => {
-                document.getElementById("output").innerHTML =
-                    "<p style='color:red;'>Unable to load events data.</p>";
+            .catch(() => {
+                events = fallbackEvents;
+                displayEvents();
             });
 
-        // Display events
         function displayEvents() {
-            let searchText = document.getElementById("search").value.toLowerCase();
+            let searchText = (document.getElementById("search").value || "").toLowerCase();
             let category = document.getElementById("category").value;
 
-            // Search Filter
             let result = events.filter(function(ev) {
                 return ev.name.toLowerCase().includes(searchText);
             });
 
-            // Category Filter
             if (category !== "All") {
                 result = result.filter(function(ev) {
                     return ev.category === category;
                 });
             }
 
-            // Pagination Calculations
             let totalPages = Math.ceil(result.length / perPage) || 1;
             if (page > totalPages) page = totalPages;
             if (page < 1) page = 1;
@@ -181,7 +193,6 @@
             let end = start + perPage;
             let pageData = result.slice(start, end);
 
-            // Render Output
             let output = "";
             if (pageData.length === 0) {
                 output = "<p style='text-align:center; color:#888; padding:20px;'>No events found matching your criteria.</p>";
@@ -204,27 +215,6 @@
             document.getElementById("output").innerHTML = output;
         }
 
-        // Search Listener
-        document.getElementById("search").addEventListener("input", function() {
-            page = 1;
-            displayEvents();
-        });
-
-        // Filter Listener
-        document.getElementById("category").addEventListener("change", function() {
-            page = 1;
-            displayEvents();
-        });
-
-        // Sort Function
-        function sortEvents() {
-            events.sort(function(a, b) {
-                return a.name.localeCompare(b.name);
-            });
-            displayEvents();
-        }
-
-        // Pagination Functions
         function nextPage() {
             page++;
             displayEvents();
@@ -236,6 +226,25 @@
                 displayEvents();
             }
         }
+
+        let isAscending = true;
+        function sortEvents() {
+            events.sort(function(a, b) {
+                return isAscending ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name);
+            });
+            isAscending = !isAscending;
+            displayEvents();
+        }
+
+        document.getElementById("search").addEventListener("input", function() {
+            page = 1;
+            displayEvents();
+        });
+
+        document.getElementById("category").addEventListener("change", function() {
+            page = 1;
+            displayEvents();
+        });
     </script>
 
 </body>

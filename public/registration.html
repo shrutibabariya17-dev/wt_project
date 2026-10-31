@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Hub - Student Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .register-card {
+            max-width: 460px;
+            margin: 20px auto;
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .register-card h2 {
+            text-align: center;
+            border-bottom: none;
+            margin-bottom: 8px;
+            padding-bottom: 0;
+        }
+
+        .register-subtitle {
+            text-align: center;
+            font-size: 13px;
+            color: #718096;
+            margin-bottom: 25px;
+        }
+
+        .card-footer-links {
+            margin-top: 22px;
+            padding-top: 15px;
+            border-top: 1px solid #EDF2F7;
+            text-align: center;
+            font-size: 13px;
+            color: #718096;
+        }
+
+        .card-footer-links a {
+            color: #5D3FD3;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .card-footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .hint-text {
+            font-size: 11px;
+            color: #718096;
+            margin-top: -10px;
+            margin-bottom: 12px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="site-header">
+        <img src="https://media.licdn.com/dms/image/v2/D4D0BAQHWXVAKdhM1Lg/company-logo_200_200/company-logo_200_200/0/1693983870321/studenthub_co_logo?e=2147483647&v=beta&t=EN025ZvklZiS_TyEbpUCpX3PYnDCmPRGwmLv1ZHp33E"
+             alt="Student Hub Logo"
+             width="80"
+             style="border-radius: 50%;">
+        <h1>Student Hub</h1>
+        <p>Your Complete College & Campus Life Portal</p>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="campuslife.html">Campus Life</a>
+        <a href="COURSEENROLLMENT.html">Course Enrollment</a>
+        <a href="events.html">Events</a>
+        <a href="faq.html">FAQ</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="login.html">Login</a>
+        <a href="registration.html" class="active">Register</a>
+        <a href="manager.php">Administrative</a>
+    </nav>
+
+    <div class="container" style="background: transparent; box-shadow: none; padding: 10px 20px;">
+        <div class="register-card">
+            <h2>New Student Registration</h2>
+            <p class="register-subtitle">Create an account to enroll in courses and view your academic profile</p>
+
+            <form name="regForm" onsubmit="return handleRegister(event)">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" placeholder="e.g. Shruti Babariya" required>
+
+                <label for="rollno">Student ID / Roll No:</label>
+                <input type="text" id="rollno" name="rollno" placeholder="e.g. 25aiml001" required>
+                <span class="hint-text">Format: 2 digits + aiml + 3 digits (e.g. 25aiml005)</span>
+
+                <label for="email">College Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="e.g. shruti@gmail.com" required>
+
+                <label for="password">Account Password:</label>
+                <input type="password" id="password" name="password" placeholder="Create a secure password" required>
+                <span class="hint-text">Must be at least 6 characters</span>
+
+                <label for="course">Program / Degree:</label>
+                <input type="text" id="course" name="course" value="B.Tech AIML" required>
+
+                <input type="submit" value="Complete Registration" style="width: 100%; margin-top: 10px;">
+            </form>
+
+            <div class="card-footer-links">
+                Already registered? <a href="login.html">Login to your account</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Student Hub | CSPIT, CHARUSAT University | Developed by Shruti Babariya & Anshika Badala</p>
+    </footer>
+
+    <script>
+        function handleRegister(e) {
+            e.preventDefault();
+
+            var name = document.getElementById("name").value.trim();
+            var rollno = document.getElementById("rollno").value.trim();
+            var email = document.getElementById("email").value.trim();
+            var password = document.getElementById("password").value.trim();
+            var course = document.getElementById("course").value.trim();
+
+            if (!name) {
+                alert("Please enter your full name.");
+                return false;
+            }
+
+            var rolltest = /^[0-9]{2}aiml[0-9]{3}$/i;
+            if (!rolltest.test(rollno)) {
+                alert("Please enter a valid Student ID format (e.g. 25aiml001).");
+                return false;
+            }
+
+            if (!email || email.indexOf("@") === -1) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            if (password.length < 4) {
+                alert("Password must be at least 4 characters long.");
+                return false;
+            }
+
+            // Save student in localStorage for persistent client session
+            var storedUsers = JSON.parse(localStorage.getItem("studenthub_users") || "[]");
+            var existing = storedUsers.find(function(u) {
+                return u.rollno.toLowerCase() === rollno.toLowerCase();
+            });
+
+            if (existing) {
+                alert("Student ID " + rollno + " is already registered! Please log in.");
+                window.location.href = "login.html";
+                return false;
+            }
+
+            var newUser = {
+                name: name,
+                rollno: rollno,
+                email: email,
+                password: password,
+                course: course
+            };
+            storedUsers.push(newUser);
+            localStorage.setItem("studenthub_users", JSON.stringify(storedUsers));
+
+            alert("Registration Successful!\nWelcome " + name + " (" + rollno + ").\nYou can now log in.");
+            window.location.href = "login.html";
+            return false;
+        }
+    </script>
+
+</body>
+</html>

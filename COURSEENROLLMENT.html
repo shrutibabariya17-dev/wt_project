@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StudentHub - Course Enrollment</title>
+    <title>Student Hub - Course Enrollment</title>
     <link rel="stylesheet" href="style.css">
     <style>
         .enroll-form-box {
@@ -19,8 +19,12 @@
 <body>
 
     <div class="site-header">
+        <img src="https://media.licdn.com/dms/image/v2/D4D0BAQHWXVAKdhM1Lg/company-logo_200_200/company-logo_200_200/0/1693983870321/studenthub_co_logo?e=2147483647&v=beta&t=EN025ZvklZiS_TyEbpUCpX3PYnDCmPRGwmLv1ZHp33E"
+             alt="Student Hub Logo"
+             width="80"
+             style="border-radius: 50%;">
         <h1>Student Hub</h1>
-        <p>Semester Course Catalog & Online Enrollment</p>
+        <p>Your Complete College & Campus Life Portal</p>
     </div>
 
     <nav>
@@ -85,28 +89,46 @@
                 Enter your registered Student ID to register for a semester course.
             </p>
 
-            <form action="manager.php?action=enroll" method="POST">
+            <form onsubmit="return handleEnroll(event)">
                 <label for="rollno">Student ID (Roll No):</label>
-                <input type="text" id="rollno" name="rollno" placeholder="e.g. 25aiml001" required>
+                <input type="text" id="rollno" name="rollno" placeholder="e.g. 25aiml001" value="25aiml001" required>
 
                 <label for="course_id">Select Course to Enroll:</label>
                 <select id="course_id" name="course_id" required>
                     <option value="1">CS301 - Java Programming (Jalpesh Vasa)</option>
-                    <option value="2">CS302 - Web Development (Mukti Patel)</option>
+                    <option value="2" selected>CS302 - Web Development (Mukti Patel)</option>
                     <option value="3">CS303 - Python for AI (Prajyot Tugaonkar)</option>
                     <option value="4">CS304 - Database Management (Harshil Joshi)</option>
                 </select>
 
                 <div style="text-align: center; margin-top: 20px;">
-                    <input type="submit" value="Confirm Enrollment">
+                    <input type="submit" value="Confirm Enrollment &rarr;">
                 </div>
             </form>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Student Hub | Course Registration System</p>
+        <p>&copy; 2026 Student Hub | CSPIT, CHARUSAT University | Developed by Shruti Babariya & Anshika Badala</p>
     </footer>
+
+    <script>
+        function handleEnroll(e) {
+            e.preventDefault();
+            var roll = document.getElementById("rollno").value.trim();
+            var sel = document.getElementById("course_id");
+            var courseName = sel.options[sel.selectedIndex].text;
+
+            if (!roll) {
+                alert("Please enter your Student ID.");
+                return false;
+            }
+
+            alert("Enrollment Successful!\n\nStudent ID: " + roll + "\nSelected Course: " + courseName + "\nStatus: Officially Enrolled\n\nRedirecting to your dashboard...");
+            window.location.href = "dashboard.html";
+            return false;
+        }
+    </script>
 
 </body>
 </html>

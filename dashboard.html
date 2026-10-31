@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StudentHub - Student Dashboard</title>
+    <title>Student Hub - Student Dashboard</title>
     <link rel="stylesheet" href="style.css">
     <style>
         .dashboard-grid {
@@ -12,71 +12,91 @@
             gap: 25px;
             margin-top: 20px;
         }
-        @media (max-width: 700px) {
+
+        @media (max-width: 768px) {
             .dashboard-grid {
                 grid-template-columns: 1fr;
             }
         }
+
         .profile-card {
             background-color: #F8F7FD;
             border: 1px solid #E2D9F3;
             border-radius: 8px;
-            padding: 20px;
+            padding: 22px;
         }
+
         .profile-row {
             display: flex;
             justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px dashed #D6C9EB;
+            padding: 10px 0;
+            border-bottom: 1px solid #EDF2F7;
+            font-size: 14px;
         }
+
         .profile-row:last-child {
             border-bottom: none;
         }
+
         .profile-label {
-            font-weight: bold;
-            color: #555;
+            color: #718096;
+            font-weight: 500;
         }
+
         .profile-val {
             color: #2D3748;
-            font-weight: 600;
+            font-weight: bold;
         }
-        .enroll-badge {
-            background-color: #5D3FD3;
-            color: white;
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 13px;
-        }
+
         .quick-links-box {
-            background-color: #FFF5F7;
-            border: 1px solid #FED7E2;
+            background-color: #FFF5F5;
+            border: 1px solid #FED7D7;
             border-radius: 8px;
-            padding: 20px;
+            padding: 22px;
         }
+
         .quick-links-box ul {
             list-style: none;
             padding: 0;
             margin: 0;
         }
+
         .quick-links-box li {
-            padding: 10px;
-            margin-bottom: 8px;
-            background: white;
-            border: 1px solid #FED7E2;
-            border-radius: 6px;
+            padding: 10px 0;
+            border-bottom: 1px solid #FED7D7;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            font-size: 14px;
         }
-        .quick-links-box li a {
-            color: #5D3FD3;
-            text-decoration: none;
+
+        .quick-links-box li:last-child {
+            border-bottom: none;
+        }
+
+        .quick-links-box a {
+            color: #C53030;
             font-weight: bold;
+            text-decoration: none;
         }
+
+        .quick-links-box a:hover {
+            text-decoration: underline;
+        }
+
         .status-badge {
             background-color: #C6F6D5;
             color: #22543D;
-            padding: 2px 8px;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .enroll-badge {
+            background-color: #5D3FD3;
+            color: white;
+            padding: 3px 8px;
             border-radius: 10px;
             font-size: 12px;
             font-weight: bold;
@@ -86,8 +106,12 @@
 <body>
 
     <div class="site-header">
+        <img src="https://media.licdn.com/dms/image/v2/D4D0BAQHWXVAKdhM1Lg/company-logo_200_200/company-logo_200_200/0/1693983870321/studenthub_co_logo?e=2147483647&v=beta&t=EN025ZvklZiS_TyEbpUCpX3PYnDCmPRGwmLv1ZHp33E"
+             alt="Student Hub Logo"
+             width="80"
+             style="border-radius: 50%;">
         <h1>Student Hub</h1>
-        <p>Personal Academic Dashboard</p>
+        <p>Your Complete College & Campus Life Portal</p>
     </div>
 
     <nav>
@@ -193,7 +217,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 Student Hub | Student Portal</p>
+        <p>&copy; 2026 Student Hub | CSPIT, CHARUSAT University | Developed by Shruti Babariya & Anshika Badala</p>
     </footer>
 
 </body>

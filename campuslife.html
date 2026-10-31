@@ -3,44 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StudentHub - Campus Life</title>
+    <title>Student Hub - Campus Life</title>
     <link rel="stylesheet" href="style.css">
     <style>
         .club-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
             margin-top: 25px;
         }
+
         .club-card {
-            background-color: #FFFFFF;
-            border: 1px solid #E2E8F0;
-            border-left: 4px solid #5D3FD3;
+            background-color: #F8F7FD;
+            border: 1px solid #E2D9F3;
             border-radius: 8px;
             padding: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
+
+        .club-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(93, 63, 211, 0.15);
+        }
+
         .club-card h3 {
             color: #5D3FD3;
+            margin-top: 0;
             margin-bottom: 8px;
         }
+
+        .club-card p {
+            color: #4A5568;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
         .club-tag {
             display: inline-block;
-            background-color: #EDF2F7;
-            color: #4A5568;
-            font-size: 12px;
+            background-color: #EDE8F7;
+            color: #5D3FD3;
+            font-size: 11px;
+            font-weight: bold;
             padding: 3px 8px;
             border-radius: 4px;
-            font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
     </style>
 </head>
 <body>
 
     <div class="site-header">
+        <img src="https://media.licdn.com/dms/image/v2/D4D0BAQHWXVAKdhM1Lg/company-logo_200_200/company-logo_200_200/0/1693983870321/studenthub_co_logo?e=2147483647&v=beta&t=EN025ZvklZiS_TyEbpUCpX3PYnDCmPRGwmLv1ZHp33E"
+             alt="Student Hub Logo"
+             width="80"
+             style="border-radius: 50%;">
         <h1>Student Hub</h1>
-        <p>Campus Clubs, Culture & Student Activities</p>
+        <p>Your Complete College & Campus Life Portal</p>
     </div>
 
     <nav>
@@ -97,7 +115,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 Student Hub | Campus Life Directorate</p>
+        <p>&copy; 2026 Student Hub | CSPIT, CHARUSAT University | Developed by Shruti Babariya & Anshika Badala</p>
     </footer>
 
 </body>

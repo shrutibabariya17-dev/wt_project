@@ -1,0 +1,172 @@
+/* style.css - Clean, unified styling for Student Hub */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #F6F7FB;
+    color: #2D3748;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Header & Logo */
+.site-header {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #E2E8F0;
+}
+
+.site-header h1 {
+    color: #5D3FD3;
+    margin: 10px 0 5px 0;
+    font-size: 28px;
+}
+
+.site-header p {
+    color: #718096;
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #5D3FD3;
+    padding: 10px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px 14px;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+nav a:hover, nav a.active {
+    background-color: #4B2DB0;
+}
+
+/* Main Container */
+.container {
+    max-width: 960px;
+    margin: 30px auto;
+    padding: 30px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+h1, h2, h3 {
+    color: #2D3748;
+    margin-top: 0;
+}
+
+h2 {
+    color: #5D3FD3;
+    border-bottom: 2px solid #EDF2F7;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Forms */
+label {
+    font-weight: bold;
+    font-size: 14px;
+    color: #4A5568;
+    display: block;
+    margin-bottom: 4px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #CBD5E0;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #5D3FD3;
+}
+
+input[type="submit"],
+button,
+.btn {
+    background-color: #5D3FD3;
+    color: white;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+input[type="submit"]:hover,
+button:hover,
+.btn:hover {
+    background-color: #4B2DB0;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 15px;
+}
+
+table th {
+    background-color: #5D3FD3;
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+}
+
+table td {
+    padding: 12px;
+    border-bottom: 1px solid #E2E8F0;
+    color: #4A5568;
+}
+
+table tr:nth-child(even) {
+    background-color: #F7FAFC;
+}
+
+table tr:hover {
+    background-color: #EDF2F7;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #718096;
+    font-size: 13px;
+    margin-top: 40px;
+}
+

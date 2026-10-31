@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Hub - FAQ & Help Center</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .question {
+            background-color: #F8F7FD;
+            border: 1px solid #E2D9F3;
+            padding: 16px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #2D3748;
+            cursor: pointer;
+            margin-top: 12px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .question:hover {
+            background-color: #EDE8F7;
+        }
+
+        .answer {
+            display: none;
+            padding: 16px 20px;
+            background-color: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-top: none;
+            border-radius: 0 0 6px 6px;
+            font-size: 14px;
+            color: #4A5568;
+            line-height: 1.6;
+        }
+
+        .faq-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .dark-mode {
+            background-color: #1A202C !important;
+            color: #E2E8F0 !important;
+        }
+
+        .dark-mode .container {
+            background-color: #2D3748 !important;
+            color: #E2E8F0 !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+
+        .dark-mode .question {
+            background-color: #4A5568 !important;
+            color: #FFFFFF !important;
+            border-color: #4A5568 !important;
+        }
+
+        .dark-mode .answer {
+            background-color: #2D3748 !important;
+            color: #CBD5E0 !important;
+            border-color: #4A5568 !important;
+        }
+
+        .dark-mode .site-header {
+            background-color: #2D3748 !important;
+            border-bottom-color: #4A5568 !important;
+        }
+
+        .dark-mode .site-header h1 {
+            color: #B794F4 !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="site-header">
+        <img src="https://media.licdn.com/dms/image/v2/D4D0BAQHWXVAKdhM1Lg/company-logo_200_200/company-logo_200_200/0/1693983870321/studenthub_co_logo?e=2147483647&v=beta&t=EN025ZvklZiS_TyEbpUCpX3PYnDCmPRGwmLv1ZHp33E"
+             alt="Student Hub Logo"
+             width="80"
+             style="border-radius: 50%;">
+        <h1>Student Hub</h1>
+        <p>Your Complete College & Campus Life Portal</p>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="campuslife.html">Campus Life</a>
+        <a href="COURSEENROLLMENT.html">Course Enrollment</a>
+        <a href="events.html">Events</a>
+        <a href="faq.html" class="active">FAQ</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="login.html">Login</a>
+        <a href="registration.html">Register</a>
+        <a href="manager.php">Administrative</a>
+    </nav>
+
+    <div class="container">
+        <div class="faq-toolbar">
+            <h2>Frequently Asked Questions</h2>
+            <button onclick="toggleTheme()" id="themeBtn">🌙 Switch to Dark Mode</button>
+        </div>
+
+        <p>Click on any question below to expand the answer:</p>
+
+        <div class="question" onclick="toggle('a1')">
+            <span>What is HTML?</span>
+            <span>+</span>
+        </div>
+        <div class="answer" id="a1">
+            HTML (HyperText Markup Language) is the standard markup language used to structure content on web pages.
+        </div>
+
+        <div class="question" onclick="toggle('a2')">
+            <span>What is CSS?</span>
+            <span>+</span>
+        </div>
+        <div class="answer" id="a2">
+            CSS (Cascading Style Sheets) is used to style and layout web pages — for example, to alter the font, color, size, and spacing of your content.
+        </div>
+
+        <div class="question" onclick="toggle('a3')">
+            <span>What is JavaScript?</span>
+            <span>+</span>
+        </div>
+        <div class="answer" id="a3">
+            JavaScript is a programming language that adds interactivity, animation, and dynamic data processing to web pages.
+        </div>
+
+        <div class="question" onclick="toggle('a4')">
+            <span>How do I enroll in semester courses?</span>
+            <span>+</span>
+        </div>
+        <div class="answer" id="a4">
+            Navigate to the <a href="COURSEENROLLMENT.html" style="color:#5D3FD3; font-weight:bold;">Course Enrollment</a> page, enter your registered Student ID (e.g. <code>25aiml001</code>), select your desired course from the list, and click "Confirm Enrollment".
+        </div>
+
+        <div class="question" onclick="toggle('a5')">
+            <span>Where can I view my academic performance and GPA?</span>
+            <span>+</span>
+        </div>
+        <div class="answer" id="a5">
+            You can view your student profile, current semester SGPA, and attendance status on your personal <a href="dashboard.html" style="color:#5D3FD3; font-weight:bold;">Student Dashboard</a>.
+        </div>
+
+        <div class="question" onclick="toggle('a6')">
+            <span>How do I register a new student account?</span>
+            <span>+</span>
+        </div>
+        <div class="answer" id="a6">
+            Visit the <a href="registration.html" style="color:#5D3FD3; font-weight:bold;">Registration</a> page, provide your Name, Student ID (format <code>25aiml001</code>), Email, and Password. Upon submitting, your account is immediately saved in the database.
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Student Hub | CSPIT, CHARUSAT University | Developed by Shruti Babariya & Anshika Badala</p>
+    </footer>
+
+    <script>
+        function toggle(id) {
+            var el = document.getElementById(id);
+            var isHidden = window.getComputedStyle(el).display === "none";
+            el.style.display = isHidden ? "block" : "none";
+        }
+
+        function toggleTheme() {
+            var body = document.body;
+            body.classList.toggle("dark-mode");
+            var btn = document.getElementById("themeBtn");
+            if (body.classList.contains("dark-mode")) {
+                btn.innerText = "☀️ Switch to Light Mode";
+            } else {
+                btn.innerText = "🌙 Switch to Dark Mode";
+            }
+        }
+    </script>
+
+</body>
+</html>

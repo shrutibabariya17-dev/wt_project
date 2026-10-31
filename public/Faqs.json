@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "question": "What is Student Hub?",
+        "answer": "Student Hub is a student portal that provides useful information and services for students.",
+        "category": "General"
+    },
+    {
+        "id": 2,
+        "question": "How can I register?",
+        "answer": "Open the Register page, fill in all required details and submit the registration form.",
+        "category": "Registration"
+    },
+    {
+        "id": 3,
+        "question": "How can I login?",
+        "answer": "Open the Login page and enter your registered email and password.",
+        "category": "Account"
+    },
+    {
+        "id": 4,
+        "question": "Where can I find upcoming events?",
+        "answer": "Upcoming events can be viewed on the Events page of Student Hub.",
+        "category": "Events"
+    },
+    {
+        "id": 5,
+        "question": "Can I search for events?",
+        "answer": "Yes, the Events page allows users to search events by title or other available information.",
+        "category": "Events"
+    },
+    {
+        "id": 6,
+        "question": "Can I filter events?",
+        "answer": "Yes, events can be filtered according to their category.",
+        "category": "Events"
+    },
+    {
+        "id": 7,
+        "question": "What courses are available?",
+        "answer": "Student Hub currently provides information for BTech AIML, BTech CSE and BTech IT students.",
+        "category": "Courses"
+    },
+    {
+        "id": 8,
+        "question": "How do I contact Student Hub?",
+        "answer": "You can visit the Contact page to find the available contact information.",
+        "category": "General"
+    },
+    {
+        "id": 9,
+        "question": "How can I submit feedback?",
+        "answer": "Open the Feedback page and submit your feedback using the provided form.",
+        "category": "Feedback"
+    },
+    {
+        "id": 10,
+        "question": "Is the registration form validated?",
+        "answer": "Yes, the registration form uses JavaScript validation to check the entered information.",
+        "category": "Registration"
+    },
+    {
+        "id": 11,
+        "question": "What happens if my passwords do not match?",
+        "answer": "The registration form displays an error message asking you to enter matching passwords.",
+        "category": "Registration"
+    },
+    {
+        "id": 12,
+        "question": "Can I use Student Hub on mobile devices?",
+        "answer": "Yes, the website is designed using responsive HTML and CSS so it can be viewed on different screen sizes.",
+        "category": "General"
+    },
+    {
+        "id": 13,
+        "question": "Can I view student information?",
+        "answer": "The student directory can display student information such as name, course, year and city.",
+        "category": "Students"
+    },
+    {
+        "id": 14,
+        "question": "Can I search for a student?",
+        "answer": "Yes, the student directory can provide search functionality for student records.",
+        "category": "Students"
+    },
+    {
+        "id": 15,
+        "question": "How can I get help with Student Hub?",
+        "answer": "You can use the Contact or Feedback pages to request assistance or provide information.",
+        "category": "General"
+    }
+]
