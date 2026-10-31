@@ -37,6 +37,14 @@
             transition: transform 0.15s, box-shadow 0.15s;
         }
 
+        @media (max-width: 550px) {
+            .event-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+
         .event-card:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);

@@ -264,54 +264,58 @@ if ($is_connected) {
 
         <div class="split-layout">
             <div>
-                <table>
-                    <tr>
-                        <th>ID</th>
-                        <th>Roll No</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Course</th>
-                        <th>Action</th>
-                    </tr>
-                    <?php foreach ($student_list as $row): ?>
-                    <tr>
-                        <td><?= $row['id'] ?></td>
-                        <td><span class="badge-student"><?= htmlspecialchars($row['roll_no']) ?></span></td>
-                        <td><strong><?= htmlspecialchars($row['name']) ?></strong></td>
-                        <td><?= htmlspecialchars($row['email']) ?></td>
-                        <td><?= htmlspecialchars($row['course']) ?></td>
-                        <td>
-                            <?php if ($is_connected): ?>
-                                <a href="manager.php?action=delete&id=<?= $row['id'] ?>" 
-                                   onclick="return confirm('Delete student <?= htmlspecialchars($row['name']) ?>?');" 
-                                   style="color: #E53E3E; font-weight: bold; text-decoration: none;">Delete</a>
-                            <?php else: ?>
-                                <span style="color:#A0AEC0; font-size:12px;">Protected</span>
-                            <?php endif; ?>
-                        </td>
-                    </tr>
-                    <?php endforeach; ?>
-                </table>
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th>ID</th>
+                            <th>Roll No</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Course</th>
+                            <th>Action</th>
+                        </tr>
+                        <?php foreach ($student_list as $row): ?>
+                        <tr>
+                            <td><?= $row['id'] ?></td>
+                            <td><span class="badge-student"><?= htmlspecialchars($row['roll_no']) ?></span></td>
+                            <td><strong><?= htmlspecialchars($row['name']) ?></strong></td>
+                            <td><?= htmlspecialchars($row['email']) ?></td>
+                            <td><?= htmlspecialchars($row['course']) ?></td>
+                            <td>
+                                <?php if ($is_connected): ?>
+                                    <a href="manager.php?action=delete&id=<?= $row['id'] ?>" 
+                                       onclick="return confirm('Delete student <?= htmlspecialchars($row['name']) ?>?');" 
+                                       style="color: #E53E3E; font-weight: bold; text-decoration: none;">Delete</a>
+                                <?php else: ?>
+                                    <span style="color:#A0AEC0; font-size:12px;">Protected</span>
+                                <?php endif; ?>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </table>
+                </div>
 
                 <h3 style="margin-top: 35px; color: #5D3FD3;">Recent Course Enrollments</h3>
-                <table>
-                    <tr>
-                        <th>ID</th>
-                        <th>Student</th>
-                        <th>Course</th>
-                        <th>Faculty</th>
-                        <th>Status</th>
-                    </tr>
-                    <?php foreach ($enrollment_list as $erow): ?>
-                    <tr>
-                        <td><?= $erow['id'] ?></td>
-                        <td><?= htmlspecialchars($erow['student_name']) ?> (<?= htmlspecialchars($erow['roll_no']) ?>)</td>
-                        <td><strong><?= htmlspecialchars($erow['course_name']) ?></strong></td>
-                        <td><?= htmlspecialchars($erow['faculty']) ?></td>
-                        <td><span style="background-color:#C6F6D5; color:#22543D; padding:2px 8px; border-radius:10px; font-size:12px; font-weight:bold;"><?= $erow['status'] ?></span></td>
-                    </tr>
-                    <?php endforeach; ?>
-                </table>
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th>ID</th>
+                            <th>Student</th>
+                            <th>Course</th>
+                            <th>Faculty</th>
+                            <th>Status</th>
+                        </tr>
+                        <?php foreach ($enrollment_list as $erow): ?>
+                        <tr>
+                            <td><?= $erow['id'] ?></td>
+                            <td><?= htmlspecialchars($erow['student_name']) ?> (<?= htmlspecialchars($erow['roll_no']) ?>)</td>
+                            <td><strong><?= htmlspecialchars($erow['course_name']) ?></strong></td>
+                            <td><?= htmlspecialchars($erow['faculty']) ?></td>
+                            <td><span style="background-color:#C6F6D5; color:#22543D; padding:2px 8px; border-radius:10px; font-size:12px; font-weight:bold;"><?= $erow['status'] ?></span></td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </table>
+                </div>
             </div>
 
             <div class="add-box">

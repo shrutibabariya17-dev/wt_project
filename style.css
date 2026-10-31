@@ -1,6 +1,11 @@
-/* style.css - Clean, unified styling for Student Hub */
+/* style.css - Clean, responsive, unified styling for Student Hub */
 * {
     box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scroll on small devices */
 }
 
 body {
@@ -10,20 +15,32 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
 }
 
 /* Header & Logo */
 .site-header {
-    background-color: white;
-    padding: 20px;
+    background-color: #FFFFFF;
+    padding: 22px 20px;
     text-align: center;
     border-bottom: 2px solid #E2E8F0;
+    width: 100%;
+}
+
+.site-header img {
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .site-header h1 {
     color: #5D3FD3;
-    margin: 10px 0 5px 0;
-    font-size: 28px;
+    margin: 10px 0 4px 0;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
 }
 
 .site-header p {
@@ -35,39 +52,49 @@ body {
 /* Navigation Bar */
 nav {
     background-color: #5D3FD3;
-    padding: 10px 20px;
+    padding: 10px 16px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 8px;
+    width: 100%;
+    box-shadow: 0 2px 6px rgba(93, 63, 211, 0.2);
 }
 
 nav a {
-    color: white;
+    color: #FFFFFF;
     text-decoration: none;
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 13.5px;
+    font-weight: 600;
     padding: 8px 14px;
-    border-radius: 4px;
-    transition: background 0.2s ease;
+    border-radius: 5px;
+    transition: background 0.2s ease, transform 0.1s ease;
+    white-space: nowrap;
+    display: inline-block;
 }
 
-nav a:hover, nav a.active {
+nav a:hover {
     background-color: #4B2DB0;
+}
+
+nav a.active {
+    background-color: #4B2DB0;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.3);
 }
 
 /* Main Container */
 .container {
-    max-width: 960px;
+    max-width: 1020px;
+    width: 92%;
     margin: 30px auto;
     padding: 30px;
     background: #FFFFFF;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
     color: #2D3748;
     margin-top: 0;
 }
@@ -77,15 +104,16 @@ h2 {
     border-bottom: 2px solid #EDF2F7;
     padding-bottom: 10px;
     margin-bottom: 20px;
+    font-size: 22px;
 }
 
 /* Forms */
 label {
-    font-weight: bold;
-    font-size: 14px;
+    font-weight: 600;
+    font-size: 13.5px;
     color: #4A5568;
     display: block;
-    margin-bottom: 4px;
+    margin-bottom: 5px;
 }
 
 input[type="text"],
@@ -94,12 +122,15 @@ input[type="password"],
 select,
 textarea {
     width: 100%;
-    padding: 10px 12px;
+    padding: 10px 14px;
     border: 1px solid #CBD5E0;
     border-radius: 6px;
     font-size: 14px;
-    margin-bottom: 15px;
-    transition: border-color 0.2s;
+    margin-bottom: 16px;
+    background-color: #FFFFFF;
+    color: #2D3748;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    font-family: inherit;
 }
 
 input[type="text"]:focus,
@@ -109,20 +140,24 @@ select:focus,
 textarea:focus {
     outline: none;
     border-color: #5D3FD3;
+    box-shadow: 0 0 0 3px rgba(93, 63, 211, 0.15);
 }
 
 input[type="submit"],
 button,
 .btn {
     background-color: #5D3FD3;
-    color: white;
+    color: #FFFFFF;
     padding: 10px 22px;
     border: none;
     border-radius: 6px;
-    font-size: 15px;
-    font-weight: bold;
+    font-size: 14.5px;
+    font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s ease;
+    transition: background 0.2s ease, transform 0.1s ease;
+    display: inline-block;
+    text-align: center;
+    font-family: inherit;
 }
 
 input[type="submit"]:hover,
@@ -131,42 +166,212 @@ button:hover,
     background-color: #4B2DB0;
 }
 
-/* Tables */
+/* Tables & Responsive Table Wrapper */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 20px 0;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 15px;
+    margin: 0;
+    font-size: 14px;
 }
 
 table th {
     background-color: #5D3FD3;
-    color: white;
-    padding: 12px;
+    color: #FFFFFF;
+    padding: 12px 14px;
     text-align: left;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 13.5px;
+    white-space: nowrap;
 }
 
 table td {
-    padding: 12px;
-    border-bottom: 1px solid #E2E8F0;
+    padding: 12px 14px;
+    border-bottom: 1px solid #EDF2F7;
     color: #4A5568;
+    vertical-align: middle;
+}
+
+table tr:last-child td {
+    border-bottom: none;
 }
 
 table tr:nth-child(even) {
-    background-color: #F7FAFC;
+    background-color: #F8FAFC;
 }
 
 table tr:hover {
-    background-color: #EDF2F7;
+    background-color: #F1F5F9;
 }
 
 /* Footer */
 footer {
     text-align: center;
-    padding: 20px;
+    padding: 25px 15px;
     color: #718096;
     font-size: 13px;
     margin-top: 40px;
+    border-top: 1px solid #E2E8F0;
+    background-color: #FFFFFF;
 }
 
+footer p {
+    margin: 0;
+}
+
+/* ========================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ======================================================== */
+
+/* Tablets & Small Laptops (max-width: 900px) */
+@media (max-width: 900px) {
+    .container {
+        width: 94%;
+        padding: 24px 20px;
+        margin: 20px auto;
+    }
+}
+
+/* Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .site-header {
+        padding: 16px 12px;
+    }
+    .site-header img {
+        width: 62px;
+        height: 62px;
+    }
+    .site-header h1 {
+        font-size: 22px;
+        margin: 8px 0 2px 0;
+    }
+    .site-header p {
+        font-size: 12.5px;
+    }
+
+    nav {
+        padding: 8px 10px;
+        gap: 6px;
+    }
+    nav a {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    .container {
+        width: 95%;
+        margin: 15px auto;
+        padding: 18px 14px;
+        border-radius: 8px;
+    }
+
+    h2 {
+        font-size: 19px;
+        margin-bottom: 15px;
+    }
+
+    table {
+        min-width: 520px; /* Ensures tables scroll cleanly instead of squishing columns */
+    }
+
+    table th, table td {
+        padding: 9px 10px;
+        font-size: 12.5px;
+    }
+
+    .login-card, .register-card {
+        padding: 22px 16px !important;
+        margin: 15px auto !important;
+        width: 100% !important;
+    }
+
+    .filter-controls {
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+    .filter-controls input[type="text"],
+    .filter-controls select,
+    .filter-controls button {
+        width: 100% !important;
+        min-width: 100% !important;
+        margin-bottom: 8px !important;
+    }
+
+    .pagination-bar {
+        flex-direction: column !important;
+        gap: 10px !important;
+        text-align: center !important;
+    }
+
+    .logout-btn {
+        margin-left: 0 !important;
+        margin-top: 4px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Small Phones (max-width: 480px) */
+@media (max-width: 480px) {
+    .site-header h1 {
+        font-size: 20px;
+    }
+    .site-header p {
+        font-size: 11.5px;
+    }
+
+    nav {
+        padding: 6px 6px;
+        gap: 4px;
+    }
+    nav a {
+        font-size: 11px;
+        padding: 5px 8px;
+    }
+
+    .container {
+        width: 96%;
+        padding: 15px 10px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .welcome-banner {
+        padding: 16px 12px !important;
+    }
+    .welcome-banner h2 {
+        font-size: 18px !important;
+    }
+
+    .feature-box {
+        grid-template-columns: 1fr !important;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .gallery-card img {
+        height: 180px !important;
+    }
+
+    .demo-credentials-box {
+        font-size: 11px !important;
+        padding: 10px !important;
+    }
+
+    footer {
+        font-size: 11.5px;
+        padding: 20px 10px;
+    }
+}

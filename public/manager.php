@@ -80,110 +80,114 @@
 
         <div class="split-layout">
             <div>
-                <table id="studentsTable">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Roll No</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Course</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td><span class="badge-student">25aiml001</span></td>
-                            <td><strong>Shruti Babariya</strong></td>
-                            <td>shruti@gmail.com</td>
-                            <td>B.Tech AIML</td>
-                            <td><a href="javascript:void(0)" onclick="deleteRow(this, 'Shruti Babariya')" style="color: #E53E3E; font-weight: bold; text-decoration: none;">Delete</a></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td><span class="badge-student">25aiml002</span></td>
-                            <td><strong>Anshika Badala</strong></td>
-                            <td>anshikabadala@gmail.com</td>
-                            <td>B.Tech AIML</td>
-                            <td><a href="javascript:void(0)" onclick="deleteRow(this, 'Anshika Badala')" style="color: #E53E3E; font-weight: bold; text-decoration: none;">Delete</a></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td><span class="badge-student">25aiml003</span></td>
-                            <td><strong>Disha Ghadiya</strong></td>
-                            <td>disha@gmail.com</td>
-                            <td>B.Tech AIML</td>
-                            <td><a href="javascript:void(0)" onclick="deleteRow(this, 'Disha Ghadiya')" style="color: #E53E3E; font-weight: bold; text-decoration: none;">Delete</a></td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td><span class="badge-student">25aiml004</span></td>
-                            <td><strong>Krisha Ghodasar</strong></td>
-                            <td>krisha@gmail.com</td>
-                            <td>B.Tech AIML</td>
-                            <td><a href="javascript:void(0)" onclick="deleteRow(this, 'Krisha Ghodasar')" style="color: #E53E3E; font-weight: bold; text-decoration: none;">Delete</a></td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td><span class="badge-student">25aiml010</span></td>
-                            <td><strong>Kavya Patel</strong></td>
-                            <td>kavya@gmail.com</td>
-                            <td>B.Tech AIML</td>
-                            <td><a href="javascript:void(0)" onclick="deleteRow(this, 'Kavya Patel')" style="color: #E53E3E; font-weight: bold; text-decoration: none;">Delete</a></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table id="studentsTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Roll No</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Course</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><span class="badge-student">25aiml001</span></td>
+                                <td><strong>Shruti Babariya</strong></td>
+                                <td>shruti@gmail.com</td>
+                                <td>B.Tech AIML</td>
+                                <td><a href="javascript:void(0)" onclick="deleteRow(this, 'Shruti Babariya')" style="color: #E53E3E; font-weight: bold; text-decoration: none;">Delete</a></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><span class="badge-student">25aiml002</span></td>
+                                <td><strong>Anshika Badala</strong></td>
+                                <td>anshikabadala@gmail.com</td>
+                                <td>B.Tech AIML</td>
+                                <td><a href="javascript:void(0)" onclick="deleteRow(this, 'Anshika Badala')" style="color: #E53E3E; font-weight: bold; text-decoration: none;">Delete</a></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><span class="badge-student">25aiml003</span></td>
+                                <td><strong>Disha Ghadiya</strong></td>
+                                <td>disha@gmail.com</td>
+                                <td>B.Tech AIML</td>
+                                <td><a href="javascript:void(0)" onclick="deleteRow(this, 'Disha Ghadiya')" style="color: #E53E3E; font-weight: bold; text-decoration: none;">Delete</a></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><span class="badge-student">25aiml004</span></td>
+                                <td><strong>Krisha Ghodasar</strong></td>
+                                <td>krisha@gmail.com</td>
+                                <td>B.Tech AIML</td>
+                                <td><a href="javascript:void(0)" onclick="deleteRow(this, 'Krisha Ghodasar')" style="color: #E53E3E; font-weight: bold; text-decoration: none;">Delete</a></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><span class="badge-student">25aiml010</span></td>
+                                <td><strong>Kavya Patel</strong></td>
+                                <td>kavya@gmail.com</td>
+                                <td>B.Tech AIML</td>
+                                <td><a href="javascript:void(0)" onclick="deleteRow(this, 'Kavya Patel')" style="color: #E53E3E; font-weight: bold; text-decoration: none;">Delete</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
                 <h3 style="margin-top: 35px; color: #5D3FD3;">Recent Course Enrollments</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Student</th>
-                            <th>Course</th>
-                            <th>Faculty</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Shruti Babariya (25aiml001)</td>
-                            <td><strong>Web Development</strong></td>
-                            <td>Mukti Patel</td>
-                            <td><span style="background-color:#C6F6D5; color:#22543D; padding:2px 8px; border-radius:10px; font-size:12px; font-weight:bold;">Enrolled</span></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Shruti Babariya (25aiml001)</td>
-                            <td><strong>Python for AI</strong></td>
-                            <td>Prajyot Tugaonkar</td>
-                            <td><span style="background-color:#C6F6D5; color:#22543D; padding:2px 8px; border-radius:10px; font-size:12px; font-weight:bold;">Enrolled</span></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Anshika Badala (25aiml002)</td>
-                            <td><strong>Java Programming</strong></td>
-                            <td>Jalpesh Vasa</td>
-                            <td><span style="background-color:#C6F6D5; color:#22543D; padding:2px 8px; border-radius:10px; font-size:12px; font-weight:bold;">Enrolled</span></td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Disha Ghadiya (25aiml003)</td>
-                            <td><strong>Web Development</strong></td>
-                            <td>Mukti Patel</td>
-                            <td><span style="background-color:#C6F6D5; color:#22543D; padding:2px 8px; border-radius:10px; font-size:12px; font-weight:bold;">Enrolled</span></td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Krisha Ghodasar (25aiml004)</td>
-                            <td><strong>Java Programming</strong></td>
-                            <td>Jalpesh Vasa</td>
-                            <td><span style="background-color:#C6F6D5; color:#22543D; padding:2px 8px; border-radius:10px; font-size:12px; font-weight:bold;">Enrolled</span></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Student</th>
+                                <th>Course</th>
+                                <th>Faculty</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Shruti Babariya (25aiml001)</td>
+                                <td><strong>Web Development</strong></td>
+                                <td>Mukti Patel</td>
+                                <td><span style="background-color:#C6F6D5; color:#22543D; padding:2px 8px; border-radius:10px; font-size:12px; font-weight:bold;">Enrolled</span></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Shruti Babariya (25aiml001)</td>
+                                <td><strong>Python for AI</strong></td>
+                                <td>Prajyot Tugaonkar</td>
+                                <td><span style="background-color:#C6F6D5; color:#22543D; padding:2px 8px; border-radius:10px; font-size:12px; font-weight:bold;">Enrolled</span></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Anshika Badala (25aiml002)</td>
+                                <td><strong>Java Programming</strong></td>
+                                <td>Jalpesh Vasa</td>
+                                <td><span style="background-color:#C6F6D5; color:#22543D; padding:2px 8px; border-radius:10px; font-size:12px; font-weight:bold;">Enrolled</span></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Disha Ghadiya (25aiml003)</td>
+                                <td><strong>Web Development</strong></td>
+                                <td>Mukti Patel</td>
+                                <td><span style="background-color:#C6F6D5; color:#22543D; padding:2px 8px; border-radius:10px; font-size:12px; font-weight:bold;">Enrolled</span></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Krisha Ghodasar (25aiml004)</td>
+                                <td><strong>Java Programming</strong></td>
+                                <td>Jalpesh Vasa</td>
+                                <td><span style="background-color:#C6F6D5; color:#22543D; padding:2px 8px; border-radius:10px; font-size:12px; font-weight:bold;">Enrolled</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             <div class="add-box">

@@ -92,7 +92,7 @@ function renderAuthNav() {
             html += `<a href="manager.html" class="${cur === 'manager.html' ? 'active' : ''}">Administrative</a>`;
         }
 
-        html += `<a href="javascript:void(0)" onclick="logout()" style="background-color: #E53E3E; margin-left: 6px;">🚪 Logout (${displayName})</a>`;
+        html += `<a href="javascript:void(0)" onclick="logout()" class="logout-btn" style="background-color: #E53E3E;">🚪 Logout (${displayName})</a>`;
 
         nav.innerHTML = html;
     }
@@ -100,3 +100,4 @@ function renderAuthNav() {
 
 // Auto-run on DOM ready
 document.addEventListener("DOMContentLoaded", renderAuthNav);
+
