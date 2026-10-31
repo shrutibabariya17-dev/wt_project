@@ -1,7 +1,18 @@
 {
-  "version": 2,
+  "cleanUrls": true,
   "rewrites": [
-    { "source": "/manager.php", "destination": "/index.js" },
-    { "source": "/(.*)", "destination": "/index.js" }
+    { "source": "/manager.php", "destination": "/manager.html" },
+    { "source": "/manager", "destination": "/manager.html" },
+    { "source": "/login", "destination": "/login.html" },
+    { "source": "/registration", "destination": "/registration.html" },
+    { "source": "/dashboard", "destination": "/dashboard.html" },
+    { "source": "/events", "destination": "/events.html" },
+    { "source": "/faq", "destination": "/faq.html" },
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/contact", "destination": "/contact.html" },
+    { "source": "/campuslife", "destination": "/campuslife.html" },
+    { "source": "/courseenrollment", "destination": "/COURSEENROLLMENT.html" },
+    { "source": "/course-enrollment", "destination": "/COURSEENROLLMENT.html" },
+    { "source": "/administrative", "destination": "/ADMINSTRATIVE.html" }
   ]
 }

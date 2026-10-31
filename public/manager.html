@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -66,7 +66,7 @@
         <a href="contact.html">Contact Us</a>
         <a href="login.html">Login</a>
         <a href="registration.html">Register</a>
-        <a href="manager.php" class="active">Administrative</a>
+        <a href="manager.html" class="active">Administrative</a>
     </nav>
 
     <div class="container">
