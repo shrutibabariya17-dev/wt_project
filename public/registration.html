@@ -1,14 +1,15 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Hub - Student Registration</title>
+    <title>Student Hub - New Student Registration</title>
     <link rel="stylesheet" href="style.css">
+    <script src="auth.js"></script>
     <style>
         .register-card {
             max-width: 460px;
-            margin: 20px auto;
+            margin: 25px auto;
             background: #FFFFFF;
             border: 1px solid #E2E8F0;
             border-radius: 10px;
@@ -19,15 +20,16 @@
         .register-card h2 {
             text-align: center;
             border-bottom: none;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             padding-bottom: 0;
+            color: #5D3FD3;
         }
 
         .register-subtitle {
             text-align: center;
             font-size: 13px;
             color: #718096;
-            margin-bottom: 25px;
+            margin-bottom: 22px;
         }
 
         .card-footer-links {
@@ -70,47 +72,40 @@
     </div>
 
     <nav>
-        <a href="index.html">Home</a>
-        <a href="campuslife.html">Campus Life</a>
-        <a href="COURSEENROLLMENT.html">Course Enrollment</a>
-        <a href="events.html">Events</a>
-        <a href="faq.html">FAQ</a>
-        <a href="dashboard.html">Dashboard</a>
+        <a href="login.html">Sign In</a>
+        <a href="registration.html" class="active">Register</a>
         <a href="about.html">About Us</a>
         <a href="contact.html">Contact Us</a>
-        <a href="login.html">Login</a>
-        <a href="registration.html" class="active">Register</a>
-        <a href="manager.html">Administrative</a>
     </nav>
 
     <div class="container" style="background: transparent; box-shadow: none; padding: 10px 20px;">
         <div class="register-card">
-            <h2>New Student Registration</h2>
-            <p class="register-subtitle">Create an account to enroll in courses and view your academic profile</p>
+            <h2>Create Student Account</h2>
+            <p class="register-subtitle">Sign up with your college ID to access courses and campus life</p>
 
             <form name="regForm" onsubmit="return handleRegister(event)">
                 <label for="name">Full Name:</label>
                 <input type="text" id="name" name="name" placeholder="e.g. Shruti Babariya" required>
 
                 <label for="rollno">Student ID / Roll No:</label>
-                <input type="text" id="rollno" name="rollno" placeholder="e.g. 25aiml001" required>
+                <input type="text" id="rollno" name="rollno" placeholder="e.g. 25aiml005" required>
                 <span class="hint-text">Format: 2 digits + aiml + 3 digits (e.g. 25aiml005)</span>
 
                 <label for="email">College Email Address:</label>
-                <input type="email" id="email" name="email" placeholder="e.g. shruti@gmail.com" required>
+                <input type="email" id="email" name="email" placeholder="e.g. student@charusat.edu.in" required>
 
                 <label for="password">Account Password:</label>
                 <input type="password" id="password" name="password" placeholder="Create a secure password" required>
-                <span class="hint-text">Must be at least 6 characters</span>
+                <span class="hint-text">Must be at least 4 characters</span>
 
-                <label for="course">Program / Degree:</label>
+                <label for="course">Program / Department:</label>
                 <input type="text" id="course" name="course" value="B.Tech AIML" required>
 
-                <input type="submit" value="Complete Registration" style="width: 100%; margin-top: 10px;">
+                <input type="submit" value="Register Account &rarr;" style="width: 100%; margin-top: 10px;">
             </form>
 
             <div class="card-footer-links">
-                Already registered? <a href="login.html">Login to your account</a>
+                Already have an account? <a href="login.html"><strong>Sign in here &rarr;</strong></a>
             </div>
         </div>
     </div>
@@ -157,7 +152,7 @@
             });
 
             if (existing) {
-                alert("Student ID " + rollno + " is already registered! Please log in.");
+                alert("Student ID " + rollno + " is already registered! Please sign in.");
                 window.location.href = "login.html";
                 return false;
             }
@@ -172,7 +167,7 @@
             storedUsers.push(newUser);
             localStorage.setItem("studenthub_users", JSON.stringify(storedUsers));
 
-            alert("Registration Successful!\nWelcome " + name + " (" + rollno + ").\nYou can now log in.");
+            alert("Registration Successful!\n\nWelcome " + name + " (" + rollno + ").\nYour account has been created. Please sign in with your credentials.");
             window.location.href = "login.html";
             return false;
         }

@@ -1,10 +1,12 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Hub - Student Dashboard</title>
     <link rel="stylesheet" href="style.css">
+    <script src="auth.js"></script>
+    <script>protectPage();</script>
     <style>
         .dashboard-grid {
             display: grid;
@@ -115,6 +117,7 @@
     </div>
 
     <nav>
+        <!-- Nav is dynamically managed by auth.js -->
         <a href="index.html">Home</a>
         <a href="campuslife.html">Campus Life</a>
         <a href="COURSEENROLLMENT.html">Course Enrollment</a>
@@ -123,9 +126,6 @@
         <a href="dashboard.html" class="active">Dashboard</a>
         <a href="about.html">About Us</a>
         <a href="contact.html">Contact Us</a>
-        <a href="login.html">Login</a>
-        <a href="registration.html">Register</a>
-        <a href="manager.html">Administrative</a>
     </nav>
 
     <div class="container">
@@ -136,27 +136,27 @@
                 <h3 style="color: #5D3FD3; margin-bottom: 15px;">Student Details</h3>
                 <div class="profile-row">
                     <span class="profile-label">Name:</span>
-                    <span class="profile-val">Shruti Babariya</span>
+                    <span class="profile-val" id="profName">Shruti Babariya</span>
                 </div>
                 <div class="profile-row">
                     <span class="profile-label">Enrollment No:</span>
-                    <span class="profile-val"><span class="enroll-badge">25aiml001</span></span>
+                    <span class="profile-val"><span class="enroll-badge" id="profRoll">25aiml001</span></span>
                 </div>
                 <div class="profile-row">
                     <span class="profile-label">Course / Degree:</span>
-                    <span class="profile-val">B.Tech (AIML)</span>
+                    <span class="profile-val" id="profCourse">B.Tech (AIML)</span>
                 </div>
                 <div class="profile-row">
                     <span class="profile-label">Department:</span>
-                    <span class="profile-val">CSPIT, CHARUSAT</span>
+                    <span class="profile-val" id="profDept">CSPIT, CHARUSAT</span>
                 </div>
                 <div class="profile-row">
                     <span class="profile-label">Current Semester:</span>
-                    <span class="profile-val">Semester 3</span>
+                    <span class="profile-val" id="profSem">Semester 3</span>
                 </div>
                 <div class="profile-row">
                     <span class="profile-label">Academic Result:</span>
-                    <span class="profile-val" style="color: #2B6CB0;">8.00 SGPA</span>
+                    <span class="profile-val" id="profGpa" style="color: #2B6CB0;">8.00 SGPA</span>
                 </div>
             </div>
 
@@ -219,6 +219,20 @@
     <footer>
         <p>&copy; 2026 Student Hub | CSPIT, CHARUSAT University | Developed by Shruti Babariya & Anshika Badala</p>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var session = getSession();
+            if (session) {
+                if (session.name) document.getElementById("profName").innerText = session.name;
+                if (session.rollno) document.getElementById("profRoll").innerText = session.rollno;
+                if (session.course) document.getElementById("profCourse").innerText = session.course;
+                if (session.department) document.getElementById("profDept").innerText = session.department;
+                if (session.semester) document.getElementById("profSem").innerText = session.semester;
+                if (session.gpa) document.getElementById("profGpa").innerText = session.gpa;
+            }
+        });
+    </script>
 
 </body>
 </html>

@@ -177,6 +177,7 @@ if ($is_connected) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StudentHub - Administrative Database Manager</title>
     <link rel="stylesheet" href="style.css">
+    <script src="auth.js"></script>
     <style>
         .split-layout {
             display: grid;

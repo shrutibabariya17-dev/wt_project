@@ -1,10 +1,12 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Hub - Course Enrollment</title>
     <link rel="stylesheet" href="style.css">
+    <script src="auth.js"></script>
+    <script>protectPage();</script>
     <style>
         .enroll-form-box {
             background-color: #F8F7FD;
@@ -28,6 +30,7 @@
     </div>
 
     <nav>
+        <!-- Nav is dynamically managed by auth.js -->
         <a href="index.html">Home</a>
         <a href="campuslife.html">Campus Life</a>
         <a href="COURSEENROLLMENT.html" class="active">Course Enrollment</a>
@@ -36,9 +39,6 @@
         <a href="dashboard.html">Dashboard</a>
         <a href="about.html">About Us</a>
         <a href="contact.html">Contact Us</a>
-        <a href="login.html">Login</a>
-        <a href="registration.html">Register</a>
-        <a href="manager.html">Administrative</a>
     </nav>
 
     <div class="container">
@@ -86,12 +86,12 @@
         <div class="enroll-form-box">
             <h3 style="color: #5D3FD3; margin-top: 0; text-align: center;">Enroll in a Course</h3>
             <p style="font-size: 13px; color: #666; text-align: center; margin-bottom: 20px;">
-                Enter your registered Student ID to register for a semester course.
+                Confirm your student ID below to register for a semester course.
             </p>
 
             <form onsubmit="return handleEnroll(event)">
                 <label for="rollno">Student ID (Roll No):</label>
-                <input type="text" id="rollno" name="rollno" placeholder="e.g. 25aiml001" value="25aiml001" required>
+                <input type="text" id="rollno" name="rollno" placeholder="e.g. 25aiml001" required>
 
                 <label for="course_id">Select Course to Enroll:</label>
                 <select id="course_id" name="course_id" required>
@@ -113,6 +113,13 @@
     </footer>
 
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var session = getSession();
+            if (session && session.rollno) {
+                document.getElementById("rollno").value = session.rollno;
+            }
+        });
+
         function handleEnroll(e) {
             e.preventDefault();
             var roll = document.getElementById("rollno").value.trim();
@@ -124,7 +131,7 @@
                 return false;
             }
 
-            alert("Enrollment Successful!\n\nStudent ID: " + roll + "\nSelected Course: " + courseName + "\nStatus: Officially Enrolled\n\nRedirecting to your dashboard...");
+            alert("Enrollment Successful!\n\nStudent ID: " + roll + "\nSelected Course: " + courseName + "\nStatus: Officially Enrolled\n\nReturning to your dashboard...");
             window.location.href = "dashboard.html";
             return false;
         }

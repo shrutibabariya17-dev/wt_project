@@ -1,14 +1,15 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Hub - Student Login</title>
+    <title>Student Hub - Sign In</title>
     <link rel="stylesheet" href="style.css">
+    <script src="auth.js"></script>
     <style>
         .login-card {
-            max-width: 420px;
-            margin: 20px auto;
+            max-width: 440px;
+            margin: 25px auto;
             background: #FFFFFF;
             border: 1px solid #E2E8F0;
             border-radius: 10px;
@@ -19,15 +20,16 @@
         .login-card h2 {
             text-align: center;
             border-bottom: none;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             padding-bottom: 0;
+            color: #5D3FD3;
         }
 
         .login-subtitle {
             text-align: center;
             font-size: 13px;
             color: #718096;
-            margin-bottom: 25px;
+            margin-bottom: 22px;
         }
 
         .demo-credentials-box {
@@ -79,6 +81,18 @@
         .card-footer-links a:hover {
             text-decoration: underline;
         }
+
+        .logged-in-alert {
+            display: none;
+            background: #F0FFF4;
+            border: 1px solid #C6F6D5;
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            font-size: 13px;
+            color: #22543D;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -93,23 +107,24 @@
     </div>
 
     <nav>
-        <a href="index.html">Home</a>
-        <a href="campuslife.html">Campus Life</a>
-        <a href="COURSEENROLLMENT.html">Course Enrollment</a>
-        <a href="events.html">Events</a>
-        <a href="faq.html">FAQ</a>
-        <a href="dashboard.html">Dashboard</a>
+        <a href="login.html" class="active">Sign In</a>
+        <a href="registration.html">Register</a>
         <a href="about.html">About Us</a>
         <a href="contact.html">Contact Us</a>
-        <a href="login.html" class="active">Login</a>
-        <a href="registration.html">Register</a>
-        <a href="manager.html">Administrative</a>
     </nav>
 
     <div class="container" style="background: transparent; box-shadow: none; padding: 10px 20px;">
         <div class="login-card">
-            <h2>Student & Admin Login</h2>
-            <p class="login-subtitle">Enter your ID and password to access your account</p>
+            <h2>Sign In to Student Hub</h2>
+            <p class="login-subtitle">Enter your Student ID and password to access your portal</p>
+
+            <div id="alreadyLoggedIn" class="logged-in-alert">
+                <span>You are currently signed in as <strong id="loggedInName"></strong>.</span><br>
+                <div style="margin-top: 8px;">
+                    <a href="dashboard.html" class="btn" style="padding: 5px 12px; font-size: 12px; text-decoration: none;">Go to Dashboard</a>
+                    <button onclick="logout()" style="padding: 5px 12px; font-size: 12px; background: #E53E3E; margin-left: 5px;">Log Out</button>
+                </div>
+            </div>
 
             <div class="demo-credentials-box">
                 <div><strong>Quick Demo Logins (Click to autofill):</strong></div>
@@ -132,7 +147,7 @@
             </form>
 
             <div class="card-footer-links">
-                Don't have an account? <a href="registration.html">Register here</a>
+                Don't have an account? <a href="registration.html"><strong>Register here &rarr;</strong></a>
             </div>
         </div>
     </div>
@@ -142,6 +157,14 @@
     </footer>
 
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var session = getSession();
+            if (session) {
+                document.getElementById("alreadyLoggedIn").style.display = "block";
+                document.getElementById("loggedInName").innerText = session.name || session.rollno;
+            }
+        });
+
         function fillCredentials(user, pass) {
             document.getElementById("uname").value = user;
             document.getElementById("pword").value = pass;
@@ -159,15 +182,21 @@
 
             // 1. Admin login
             if (u.toLowerCase() === "admin" && p === "123") {
+                setSession({
+                    name: "Administrator",
+                    rollno: "ADMIN",
+                    role: "admin"
+                });
                 alert("Administrator Access Granted! Welcome to Admin Portal.");
-                window.location.href = "manager.php";
+                window.location.href = "manager.html";
                 return false;
             }
 
             // 2. Shruti Babariya (25aiml001)
             if ((u.toLowerCase() === "25aiml001" || u.toLowerCase() === "shruti") && (p === "123" || p === "123456")) {
+                setSession(DEFAULT_STUDENT);
                 alert("Login successful! Welcome back, Shruti Babariya (25aiml001).");
-                window.location.href = "dashboard.html";
+                window.location.href = "index.html";
                 return false;
             }
 
@@ -178,16 +207,36 @@
             });
 
             if (found) {
+                setSession({
+                    name: found.name,
+                    rollno: found.rollno,
+                    email: found.email,
+                    course: found.course,
+                    department: "CSPIT, CHARUSAT",
+                    semester: "Semester 3",
+                    gpa: "8.00 SGPA",
+                    role: "student"
+                });
                 alert("Login successful! Welcome back, " + found.name + " (" + found.rollno + ").");
-                window.location.href = "dashboard.html";
+                window.location.href = "index.html";
                 return false;
             }
 
             // 4. Any other student ID format accepted
             var rollRegex = /^[0-9]{2}aiml[0-9]{3}$/i;
             if (rollRegex.test(u) && p.length >= 4) {
+                setSession({
+                    name: "Student (" + u + ")",
+                    rollno: u,
+                    email: u + "@charusat.edu.in",
+                    course: "B.Tech AIML",
+                    department: "CSPIT, CHARUSAT",
+                    semester: "Semester 3",
+                    gpa: "8.00 SGPA",
+                    role: "student"
+                });
                 alert("Login successful! Welcome to your student dashboard.");
-                window.location.href = "dashboard.html";
+                window.location.href = "index.html";
                 return false;
             }
 

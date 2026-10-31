@@ -34,6 +34,7 @@ const PAGES = {
     '/administrative.html': fs.readFileSync(path.join(__dirname, 'ADMINSTRATIVE.html'), 'utf8'),
     '/administrative': fs.readFileSync(path.join(__dirname, 'ADMINSTRATIVE.html'), 'utf8'),
     '/style.css': fs.readFileSync(path.join(__dirname, 'style.css'), 'utf8'),
+    '/auth.js': fs.readFileSync(path.join(__dirname, 'auth.js'), 'utf8'),
     '/events.json': fs.readFileSync(path.join(__dirname, 'events.json'), 'utf8')
 };
 
@@ -107,3 +108,4 @@ if (require.main === module) {
 }
 
 module.exports = handler;
+

@@ -39,3 +39,4 @@ for (const [orig, alias] of aliases) {
 }
 
 console.log('Build complete! Successfully generated static bundle in /public');
+
