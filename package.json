@@ -2,7 +2,9 @@
   "name": "student-hub",
   "version": "1.0.0",
   "description": "Student Hub - University Web Portal",
+  "main": "index.js",
   "scripts": {
-    "build": "echo 'Build successful'"
+    "start": "node index.js",
+    "build": "echo 'Build complete'"
   }
 }
